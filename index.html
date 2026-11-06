@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brick &amp; Sound</title>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Brick &amp; Sound">
+<meta name="theme-color" content="#14171b">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAALJElEQVR4nO3d0XUUSRJAUdiDD/gCDoDFWIAv4MV+MGdWwwArRHdXRrx7f4dRR5Yq61WXQP36y4d3rwDo+c/VAwBwDQEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIenP1ADzC20+fn/PHvn58f+9JuJyTgb+9/vLh3dUzcBfP3Oc/Y/9v4mTghwRgmz/c6v9m88/lZODXBGCPm+/2p+z8WZwMPIcAbHDX3f6UnX8+JwPPJwCzPWy3P2Xnn8nJwO8SgKku2e1P2fnncDLwMv4dwEiXb/hDZuDVGd+IE2bgBQRgnnM22zmTZJ3zLThnEp7PI6BJjt1jngA8npOBP+cdwBjHbvhXZ8+20skH/OTZ+I4AzHD+pjp/wjXOP9TnT8g3AjDAlO00Zc7RphzkKXPGCcDpZm2kWdOOM+vwzpq2SQAAogTgaBPvoSbOPMLEAztx5hQBONfczTN38mPNPaRzJy8QgENN3zbT5z/K9IM5ff7FBAAgSgBOtOOOaccqLrfjMO5YxT4CABAlAMfZdK+0aS2X2HQAN61lDQEAiBKAs+y7S9q3oofZd+j2rWg6AQCIEoCDbL0/2rquu9p60LauaygBAIgSAIAoATjF7rfGu1d3c7sP1+7VzSIAAFECABAlAABRAnCEwlPRwhpvonCgCmscQQAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgCO8PXj+6tHuLvCGm+icKAKaxxBAACiBAAgSgAAogTgFLufiu5e3c3tPly7VzeLAABECQBAlAAcZOtb463ruqutB23ruoYSAIAoATjLvvujfSt6mH2Hbt+KphMAgCgBOM6mu6RNa7nEpgO4aS1rCABAlACcaMe90o5VXG7HYdyxin0EACBKAA41/Y5p+vxHmX4wp8+/mACca+62mTv5seYe0rmTFwjA0SZunokzjzDxwE6cOUUAAKIE4HSz7qFmTTvOrMM7a9omARhgykaaMudoUw7ylDnjBGCG87fT+ROucf6hPn9CvhGAMU7eVCfPttLJB/zk2fjO6y8f3l09A7/n7afPV4/wP3b7tZwM/AnvAOY5Z5udM0nWOd+Ccybh+QRgpBM22wkz8OqMb8QJM/ACHgHNdskTALv9TE4GfpcAbPCwnW+3n8/JwPMJwB533fl2+yxOBp5DALa5+c632+dyMvBrArDWH25+W30TJwM/JAAJz9z/9nmBk4G/CQBAlH8HABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABD15uoB4NHefvr8s//09eP7R04C13r95cO7q2eAu/vFRf9nxID1BIDlXnDpf0oGWEwAWOsPL/1PyQAr+SEwO93w6n/zrwaHEAAWusf1WgPYxyMgVnnAZdrjINbwDoA9HnOT7q0AawgAQJQAsMQjb8y9CWAHAWCDx1+RNYAFBIDxrroWawDTCQBAlAAw27W34d4EMJoAAEQJAIOdcAN+wgzwMgIAECUAAFECABAlAEx1zsP3cyaB3yIAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUW+uHgC4vV/8eqKvH98/chJOJgCwxDN/J93TPyYGcQIA473415F++x9lIEsAYLCb/CZqGcjyQ2CY6rafQ+BTDYIEAEa6x/VaA2o8AoJh7nqZ9jgoxTsAmOQxN+neCkQIAECUAMAYj7wx9yagQABghsdfkTVgPQGAAa66FmvAbgIAECUAcLprb8O9CVhMAACiBACOdsIN+AkzcA8CABAlAABRAgAQJQBwrnMevp8zCTckAABRfh00/+DDxKFDAPBh4hAlAGk+TBzKBCDKh4kDfghc5MPEgVcCEOTDxIFvPAIK8WHiwFPeAVT4MHHgOwIAECUACT5MHPg3AdjPh4kDPyQAy/kwceBnBAAgSgA282HiwC8IAECUAKx1wg34CTMAPyMAAFECABAlAABRArDTOQ/fz5kE+I4AAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJwE5fP76/eoS/3G8Sa3ykcybhhgQAIEoAAKIEACBKANY64aHtvWewxsc4YQbuQQAAogRgs2tv3B7z6ta4+9W5KwEAiBKA5a66fXvk61rjvtflMQRgv8fvYa/oFRlBABLcq859rate19W/QAAAogSgwt9XmfUq17662/+I118+vLt6Bh7q7afP9/iyR10yrPHFjloj9+YdQM49dvhpVw1rPOdrcjIBKLrtPj/zqmGN1341RvAIKO0PHyOMuGRY4/81Yo3cgwDwksvHuEuGNf7QuDVyWwLAP/ziIrLmYmGNj5yEkwkAQJQfAgNECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARP0XvCU1EE4ZPMwAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAALJElEQVR4nO3d0XUUSRJAUdiDD/gCDoDFWIAv4MV+MGdWwwArRHdXRrx7f4dRR5Yq61WXQP36y4d3rwDo+c/VAwBwDQEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIEgCAKAEAiBIAgCgBAIgSAIAoAQCIenP1ADzC20+fn/PHvn58f+9JuJyTgb+9/vLh3dUzcBfP3Oc/Y/9v4mTghwRgmz/c6v9m88/lZODXBGCPm+/2p+z8WZwMPIcAbHDX3f6UnX8+JwPPJwCzPWy3P2Xnn8nJwO8SgKku2e1P2fnncDLwMv4dwEiXb/hDZuDVGd+IE2bgBQRgnnM22zmTZJ3zLThnEp7PI6BJjt1jngA8npOBP+cdwBjHbvhXZ8+20skH/OTZ+I4AzHD+pjp/wjXOP9TnT8g3AjDAlO00Zc7RphzkKXPGCcDpZm2kWdOOM+vwzpq2SQAAogTgaBPvoSbOPMLEAztx5hQBONfczTN38mPNPaRzJy8QgENN3zbT5z/K9IM5ff7FBAAgSgBOtOOOaccqLrfjMO5YxT4CABAlAMfZdK+0aS2X2HQAN61lDQEAiBKAs+y7S9q3oofZd+j2rWg6AQCIEoCDbL0/2rquu9p60LauaygBAIgSAIAoATjF7rfGu1d3c7sP1+7VzSIAAFECABAlAABRAnCEwlPRwhpvonCgCmscQQAAogQAIEoAAKIEACBKAACiBAAgSgAAogQAIEoAAKIEACBKAACiBAAgSgCO8PXj+6tHuLvCGm+icKAKaxxBAACiBAAgSgAAogTgFLufiu5e3c3tPly7VzeLAABECQBAlAAcZOtb463ruqutB23ruoYSAIAoATjLvvujfSt6mH2Hbt+KphMAgCgBOM6mu6RNa7nEpgO4aS1rCABAlACcaMe90o5VXG7HYdyxin0EACBKAA41/Y5p+vxHmX4wp8+/mACca+62mTv5seYe0rmTFwjA0SZunokzjzDxwE6cOUUAAKIE4HSz7qFmTTvOrMM7a9omARhgykaaMudoUw7ylDnjBGCG87fT+ROucf6hPn9CvhGAMU7eVCfPttLJB/zk2fjO6y8f3l09A7/n7afPV4/wP3b7tZwM/AnvAOY5Z5udM0nWOd+Ccybh+QRgpBM22wkz8OqMb8QJM/ACHgHNdskTALv9TE4GfpcAbPCwnW+3n8/JwPMJwB533fl2+yxOBp5DALa5+c632+dyMvBrArDWH25+W30TJwM/JAAJz9z/9nmBk4G/CQBAlH8HABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUQIAECUAAFECABD15uoB4NHefvr8s//09eP7R04C13r95cO7q2eAu/vFRf9nxID1BIDlXnDpf0oGWEwAWOsPL/1PyQAr+SEwO93w6n/zrwaHEAAWusf1WgPYxyMgVnnAZdrjINbwDoA9HnOT7q0AawgAQJQAsMQjb8y9CWAHAWCDx1+RNYAFBIDxrroWawDTCQBAlAAw27W34d4EMJoAAEQJAIOdcAN+wgzwMgIAECUAAFECABAlAEx1zsP3cyaB3yIAAFECABAlAABRAgAQJQAAUQIAECUAAFECABAlAABRAgAQJQAAUW+uHgC4vV/8eqKvH98/chJOJgCwxDN/J93TPyYGcQIA473415F++x9lIEsAYLCb/CZqGcjyQ2CY6rafQ+BTDYIEAEa6x/VaA2o8AoJh7nqZ9jgoxTsAmOQxN+neCkQIAECUAMAYj7wx9yagQABghsdfkTVgPQGAAa66FmvAbgIAECUAcLprb8O9CVhMAACiBACOdsIN+AkzcA8CABAlAABRAgAQJQBwrnMevp8zCTckAABRfh00/+DDxKFDAPBh4hAlAGk+TBzKBCDKh4kDfghc5MPEgVcCEOTDxIFvPAIK8WHiwFPeAVT4MHHgOwIAECUACT5MHPg3AdjPh4kDPyQAy/kwceBnBAAgSgA282HiwC8IAECUAKx1wg34CTMAPyMAAFECABAlAABRArDTOQ/fz5kE+I4AAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJwE5fP76/eoS/3G8Sa3ykcybhhgQAIEoAAKIEACBKANY64aHtvWewxsc4YQbuQQAAogRgs2tv3B7z6ta4+9W5KwEAiBKA5a66fXvk61rjvtflMQRgv8fvYa/oFRlBABLcq859rate19W/QAAAogSgwt9XmfUq17662/+I118+vLt6Bh7q7afP9/iyR10yrPHFjloj9+YdQM49dvhpVw1rPOdrcjIBKLrtPj/zqmGN1341RvAIKO0PHyOMuGRY4/81Yo3cgwDwksvHuEuGNf7QuDVyWwLAP/ziIrLmYmGNj5yEkwkAQJQfAgNECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARAkAQJQAAEQJAECUAABECQBAlAAARP0XvCU1EE4ZPMwAAAAASUVORK5CYII=">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiQnJpY2sgJiBTb3VuZCIsInNob3J0X25hbWUiOiJCcmljayAmIFNvdW5kIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJzdGFydF91cmwiOiIuIiwiYmFja2dyb3VuZF9jb2xvciI6IiMxNDE3MWIiLCJ0aGVtZV9jb2xvciI6IiNlODQ4M2EiLCJpY29ucyI6W3sic3JjIjoiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFnQUFBQUlBQ0FJQUFBQjdHa090QUFBTEpFbEVRVlI0bk8zZDBYVVVTUkpBVWRpREQvZ0NEb0RGV0lBdjRNVitNR2RXd3dBclJIZFhScng3ZjRkUlI1WXE2MVdYUVAzNnk0ZDNyd0RvK2MvVkF3QndEUUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUlnU0FJQW9BUUNJRWdDQUtBRUFpQklBZ0NnQkFJZ1NBSUFvQVFDSUVnQ0FLQUVBaUJJQWdDZ0JBSWdTQUlBb0FRQ0llblAxQUR6QzIwK2ZuL1BIdm41OGYrOUp1SnlUZ2IrOS92TGgzZFV6Y0JmUDNPYy9ZLzl2NG1UZ2h3Umdtei9jNnY5bTg4L2xaT0RYQkdDUG0rLzJwK3o4V1p3TVBJY0FiSERYM2Y2VW5YOCtKd1BQSndDelBXeTNQMlhubjhuSndPOFNnS2t1MmUxUDJmbm5jREx3TXY0ZHdFaVhiL2hEWnVEVkdkK0lFMmJnQlFSZ25uTTIyem1UWkozekxUaG5FcDdQSTZCSmp0MWpuZ0E4bnBPQlArY2R3QmpIYnZoWFo4KzIwc2tIL09UWitJNEF6SEQrcGpwL3dqWE9QOVRuVDhnM0FqREFsTzAwWmM3UnBoemtLWFBHQ2NEcFptMmtXZE9PTSt2d3pwcTJTUUFBb2dUZ2FCUHZvU2JPUE1MRUF6dHg1aFFCT05mY3pUTjM4bVBOUGFSekp5OFFnRU5OM3piVDV6L0s5SU01ZmY3RkJBQWdTZ0JPdE9PT2FjY3FMcmZqTU81WXhUNENBQkFsQU1mWmRLKzBhUzJYMkhRQU42MWxEUUVBaUJLQXMreTdTOXEzb29mWmQrajJyV2c2QVFDSUVvQ0RiTDAvMnJxdXU5cDYwTGF1YXlnQkFJZ1NBSUFvQVRqRjdyZkd1MWQzYzdzUDErN1Z6U0lBQUZFQ0FCQWxBQUJSQW5DRXdsUFJ3aHB2b25DZ0Ntc2NRUUFBb2dRQUlFb0FBS0lFQUNCS0FBQ2lCQUFnU2dBQW9nUUFJRW9BQUtJRUFDQktBQUNpQkFBZ1NnQ084UFhqKzZ0SHVMdkNHbStpY0tBS2F4eEJBQUNpQkFBZ1NnQUFvZ1RnRkx1Zml1NWUzYzN0UGx5N1Z6ZUxBQUJFQ1FCQWxBQWNaT3RiNDYzcnVxdXRCMjNydW9ZU0FJQW9BVGpMdnZ1amZTdDZtSDJIYnQrS3BoTUFnQ2dCT002bXU2Uk5hN25FcGdPNGFTMXJDQUJBbEFDY2FNZTkwbzVWWEc3SFlkeXhpbjBFQUNCS0FBNDEvWTVwK3Z4SG1YNHdwOCsvbUFDY2ErNjJtVHY1c2VZZTBybVRGd2pBMFNadW5va3pqekR4d0U2Y09VVUFBS0lFNEhTejdxRm1UVHZPck1NN2E5b21BUmhneWthYU11ZG9Vdzd5bERuakJHQ0c4N2ZUK1JPdWNmNmhQbjlDdmhHQU1VN2VWQ2ZQdHRMSkIvemsyZmpPNnk4ZjNsMDlBNy9uN2FmUFY0L3dQM2I3dFp3TS9BbnZBT1k1WjV1ZE0wbldPZCtDY3liaCtRUmdwQk0yMndrejhPcU1iOFFKTS9BQ0hnSE5kc2tUQUx2OVRFNEdmcGNBYlBDd25XKzNuOC9Kd1BNSndCNTMzZmwyK3l4T0JwNURBTGE1K2M2MzIrZHlNdkJyQXJEV0gyNStXMzBUSndNL0pBQUp6OXovOW5tQms0Ry9DUUJBbEg4SEFCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCRDE1dW9CNE5IZWZ2cjhzLy8wOWVQN1IwNEMxM3I5NWNPN3EyZUF1L3ZGUmY5bnhJRDFCSURsWG5EcGYwb0dXRXdBV09zUEwvMVB5UUFyK1NFd085M3c2bi96cndhSEVBQVd1c2YxV2dQWXh5TWdWbm5BWmRyaklOYndEb0E5SG5PVDdxMEFhd2dBUUpRQXNNUWpiOHk5Q1dBSEFXQ0R4MStSTllBRkJJRHhycm9XYXdEVENRQkFsQUF3MjdXMzRkNEVNSm9BQUVRSkFJT2RjQU4rd2d6d01nSUFFQ1VBQUZFQ0FCQWxBRXgxenNQM2N5YUIzeUlBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVcrdUhnQzR2Vi84ZXFLdkg5OC9jaEpPSmdDd3hETi9KOTNUUHlZR2NRSUE0NzM0MTVGKyt4OWxJRXNBWUxDYi9DWnFHY2p5UTJDWTZyYWZRK0JURFlJRUFFYTZ4L1ZhQTJvOEFvSmg3bnFaOWpnb3hUc0FtT1F4TituZUNrUUlBRUNVQU1BWWo3d3g5eWFnUUFCZ2hzZGZrVFZnUFFHQUFhNjZGbXZBYmdJQUVDVUFjTHByYjhPOUNWaE1BQUNpQkFDT2RzSU4rQWt6Y0E4Q0FCQWxBQUJSQWdBUUpRQndybk1ldnA4ekNUY2tBQUJSZmgwMC8rRER4S0ZEQVBCaDRoQWxBR2srVEJ6S0JDREtoNGtEZmdoYzVNUEVnVmNDRU9URHhJRnZQQUlLOFdIaXdGUGVBVlQ0TUhIZ093SUFFQ1VBQ1Q1TUhQZzNBZGpQaDRrRFB5UUF5L2t3Y2VCbkJBQWdTZ0EyODJIaXdDOElBRUNVQUt4MXdnMzRDVE1BUHlNQUFGRUNBQkFsQUFCUkFyRFRPUS9mejVrRStJNEFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSndFNWZQNzYvZW9TLzNHOFNhM3lrY3liaGhnUUFJRW9BQUtJRUFDQktBTlk2NGFIdHZXZXd4c2M0WVFidVFRQUFvZ1JnczJ0djNCN3o2dGE0KzlXNUt3RUFpQktBNWE2NmZYdms2MXJqdnRmbE1RUmd2OGZ2WWEvb0ZSbEJBQkxjcTg1OXJhdGUxOVcvUUFBQW9nU2d3dDlYbWZVcTE3NjYyLytJMTE4K3ZMdDZCaDdxN2FmUDkvaXlSMTB5clBIRmpsb2o5K1lkUU00OWR2aHBWdzFyUE9kcmNqSUJLTHJ0UGovenFtR04xMzQxUnZBSUtPMFBIeU9NdUdSWTQvODFZbzNjZ3dEd2tzdkh1RXVHTmY3UXVEVnlXd0xBUC96aUlyTG1ZbUdOajV5RWt3a0FRSlFmQWdORUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUlAwWHZDVTFFRTRaUE13QUFBQUFTVVZPUks1Q1lJST0iLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIn1dfQ==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+  :root {
+    --bg: #14171b;
+    --surface: #1e232b;
+    --surface-2: #262c36;
+    --text: #e9e4dc;
+    --text-dim: #9aa1ab;
+    --brick: #e8483a;
+    --brick-dim: #7a2a24;
+    --yellow: #f2b705;
+    --teal: #3e8e7e;
+    --purple: #8b6bd8;
+    --stud: #33393f;
+    --radius-lg: 34px;
+    --radius-md: 22px;
+    --radius-sm: 14px;
+    --font-display: 'Baloo 2', system-ui, sans-serif;
+    --font-body: 'Manrope', system-ui, sans-serif;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
+  }
+  :root:not([data-theme="light"]) { color-scheme: dark; }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f1ede4; --surface: #ffffff; --surface-2: #f6f2ea;
+      --text: #201c16; --text-dim: #6b6459; --stud: #e3ddd0;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f1ede4; --surface: #ffffff; --surface-2: #f6f2ea;
+    --text: #201c16; --text-dim: #6b6459; --stud: #e3ddd0;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); overflow: hidden; -webkit-tap-highlight-color: transparent; }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 10px; }
+
+  #app { display: flex; height: 100vh; height: 100dvh; }
+
+  /* ---------- Rail ---------- */
+  #rail { width: 108px; flex-shrink: 0; background: var(--surface); display: flex; flex-direction: column; align-items: center; padding: calc(env(safe-area-inset-top,0px) + 20px) 0 16px; gap: 14px; }
+  .rail-logo { width: 44px; height: 44px; background: var(--brick); border-radius: 30% / 30%; margin-bottom: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .rail-logo svg { width: 26px; height: 26px; }
+  .mode-btn { width: 76px; height: 76px; background: var(--surface-2); border: none; border-radius: 32% / 32%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--text-dim); font-family: var(--font-display); font-weight: 600; font-size: 12.5px; cursor: pointer; transition: transform .18s ease, background .18s ease, color .18s ease; }
+  .mode-btn svg { width: 26px; height: 26px; }
+  .mode-btn.active { background: var(--brick); color: #fff; transform: scale(1.04); }
+  .mode-btn[data-mode="sound"].active { background: var(--teal); }
+  .mode-btn[data-mode="collection"].active { background: var(--yellow); color: #241c00; }
+  .mode-btn:active { transform: scale(0.94); }
+  .rail-spacer { flex: 1; }
+
+  /* ---------- Main ---------- */
+  #main { flex: 1; min-width: 0; display: flex; flex-direction: column; overflow: hidden; }
+  .view { display: none; flex-direction: column; height: 100%; overflow: hidden; }
+  .view.active { display: flex; }
+  .view-header { padding: calc(env(safe-area-inset-top,0px) + 22px) 28px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-shrink: 0; flex-wrap: wrap; }
+  .view-title { font-family: var(--font-display); font-weight: 700; font-size: 30px; margin: 0; }
+  .view-sub { color: var(--text-dim); font-size: 14px; margin-top: 2px; }
+
+  .btn { font-family: var(--font-body); font-weight: 700; font-size: 14px; border: none; border-radius: 999px; padding: 11px 20px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; color: #fff; background: var(--brick); transition: transform .12s ease; white-space: nowrap; }
+  .btn:active { transform: scale(0.96); }
+  .btn.ghost { background: var(--surface-2); color: var(--text); }
+  .btn.teal { background: var(--teal); }
+  .btn:disabled { opacity: .5; }
+  .btn svg { width: 16px; height: 16px; }
+
+  .scroll { flex: 1; overflow-y: auto; padding: 4px 28px 140px; }
+
+  .tile-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; padding-top: 6px; }
+  .tile { background: var(--surface); border-radius: var(--radius-lg); padding: 14px; cursor: pointer; border: none; text-align: left; color: var(--text); font-family: var(--font-body); display: flex; flex-direction: column; gap: 10px; transition: transform .15s ease; position: relative; }
+  .tile:active { transform: scale(0.97); }
+  .tile-art { width: 100%; aspect-ratio: 1/1; border-radius: 30% / 30%; background: var(--surface-2); display: flex; align-items: center; justify-content: center; color: var(--text-dim); overflow: hidden; }
+  .tile-art img { width: 100%; height: 100%; object-fit: cover; }
+  .tile-art.brick-art { background: linear-gradient(155deg, var(--brick), var(--brick-dim)); }
+  .tile-art.album-art { background: linear-gradient(155deg, var(--teal), #235349); }
+  .tile-art.playlist-art { background: linear-gradient(155deg, var(--yellow), #a87c04); }
+  .tile-art.genre-art { background: linear-gradient(155deg, var(--purple), #4c3a86); }
+  .tile-art.artist-art { background: linear-gradient(155deg, var(--brick), var(--brick-dim)); }
+  .tile-art.tag-art { background: linear-gradient(155deg, #4e9ad8, #235071); }
+  .tile-art svg { width: 40%; height: 40%; opacity: .9; }
+  .tile-name { font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 1.2; }
+  .tile-meta { font-size: 12.5px; color: var(--text-dim); }
+  .tile.add-tile { align-items: center; justify-content: center; border: 2px dashed var(--surface-2); background: transparent; min-height: 100%; }
+  .tile.add-tile .tile-art { background: transparent; }
+  .tile.add-tile svg { width: 34px; height: 34px; color: var(--text-dim); }
+
+  .empty-state { color: var(--text-dim); font-size: 15px; padding: 40px 4px; max-width: 360px; }
+  .empty-state b { color: var(--text); }
+
+  .segmented { display: flex; background: var(--surface-2); border-radius: 999px; padding: 4px; gap: 2px; width: fit-content; flex-wrap: wrap; }
+  .segmented button { border: none; background: transparent; color: var(--text-dim); font-family: var(--font-body); font-weight: 700; font-size: 13.5px; padding: 9px 16px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .segmented button.active { background: var(--teal); color: #fff; }
+
+  /* ---------- PDF Viewer overlay ---------- */
+  #pdfOverlay { position: fixed; inset: 0; background: var(--bg); display: none; flex-direction: column; z-index: 50; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  #pdfOverlay.active { display: flex; }
+  .pdf-bar, .pdf-nav { transition: opacity .25s ease; }
+  #pdfOverlay.controls-hidden .pdf-bar, #pdfOverlay.controls-hidden .pdf-nav { opacity: 0; pointer-events: none; }
+  .pdf-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px; flex-shrink: 0; gap: 14px; }
+  .pdf-bar-mid { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .pdf-bar-cover { width: 34px; height: 34px; border-radius: 26% / 26%; object-fit: cover; flex-shrink: 0; background: var(--stud); }
+  .pdf-bar-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 46vw; }
+  .pdf-bar-sub { color: var(--text-dim); font-size: 12.5px; text-align: left; }
+  .icon-btn { width: 42px; height: 42px; border-radius: 30% / 30%; background: var(--surface-2); border: none; color: var(--text); display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+  .icon-btn svg { width: 20px; height: 20px; }
+  .icon-btn.sm { width: 34px; height: 34px; }
+  .icon-btn.sm svg { width: 16px; height: 16px; }
+  .icon-btn:active { transform: scale(0.92); }
+  #pdfCanvasWrap { flex: 1; overflow: auto; display: flex; align-items: center; justify-content: center; padding: 8px 14px 20px; }
+  #pdfCanvas { max-width: 100%; height: auto; border-radius: var(--radius-sm); box-shadow: 0 10px 30px rgba(0,0,0,.35); background: #fff; }
+  .pdf-nav { display: flex; align-items: center; justify-content: center; gap: 18px; padding: 14px 20px calc(18px + env(safe-area-inset-bottom,0px)); flex-shrink: 0; }
+  .pdf-page-indicator { font-family: var(--font-display); font-weight: 700; font-size: 15px; min-width: 90px; text-align: center; }
+
+  /* ---------- Now Playing bar ---------- */
+  #nowPlaying { position: absolute; left: 108px; right: 0; bottom: 0; padding: 12px 28px calc(14px + env(safe-area-inset-bottom,0px)); background: linear-gradient(180deg, transparent, var(--bg) 40%); display: none; align-items: center; gap: 14px; pointer-events: none; }
+  #nowPlaying.show { display: flex; }
+  #nowPlaying .np-card { pointer-events: auto; background: var(--surface); border-radius: var(--radius-md); padding: 10px 16px 10px 10px; display: flex; align-items: center; gap: 12px; width: 100%; box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+  #nowPlaying img.np-art { width: 44px; height: 44px; border-radius: 26% / 26%; object-fit: cover; background: var(--stud); flex-shrink: 0; display: none; }
+  .np-art-fallback { width: 44px; height: 44px; border-radius: 26% / 26%; background: var(--stud); flex-shrink: 0; }
+  .np-meta { flex: 1; min-width: 0; }
+  .np-title { font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .np-artist { font-size: 12px; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .np-progress { flex: 1; display: flex; align-items: center; gap: 10px; max-width: 320px; }
+  .np-progress input[type=range] { flex: 1; accent-color: var(--teal); }
+  .np-time { font-size: 11px; color: var(--text-dim); min-width: 34px; }
+  .np-controls { display: flex; align-items: center; gap: 6px; }
+  .np-controls button { background: none; border: none; color: var(--text); cursor: pointer; padding: 6px; }
+  .np-controls button svg { width: 22px; height: 22px; }
+  .np-controls button.play svg { width: 28px; height: 28px; }
+  .np-volume { display: flex; align-items: center; gap: 6px; color: var(--text-dim); }
+  .np-volume input[type=range] { width: 70px; accent-color: var(--teal); }
+  @media (max-width: 900px) { .np-volume { display: none; } }
+
+  .track-row { display: flex; align-items: center; gap: 14px; padding: 10px 10px; border-radius: var(--radius-sm); cursor: pointer; }
+  .track-row:hover, .track-row:active { background: var(--surface); }
+  .track-row.playing { background: var(--surface); }
+  .track-row.playing .track-title { color: var(--teal); }
+  .track-num { width: 22px; text-align: center; color: var(--text-dim); font-size: 13px; flex-shrink: 0; }
+  .track-art { width: 42px; height: 42px; border-radius: 26% / 26%; background: var(--stud); flex-shrink: 0; object-fit: cover; }
+  .track-title { font-weight: 700; font-size: 14.5px; }
+  .track-sub { font-size: 12.5px; color: var(--text-dim); }
+  .track-actions { margin-left: auto; display: flex; gap: 2px; }
+  .track-actions button { background: none; border: none; color: var(--text-dim); cursor: pointer; padding: 6px; }
+  .track-actions button svg { width: 18px; height: 18px; }
+
+  .back-btn { margin-bottom: 14px; }
+
+  /* ---------- Collection (Lego HQ) ---------- */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap: 14px; margin-bottom: 20px; }
+  .stat-card { background: var(--surface); border-radius: var(--radius-md); padding: 16px 10px; text-align: center; }
+  .stat-card .stat-num { display: block; font-family: var(--font-display); font-weight: 800; font-size: 26px; color: var(--yellow); }
+  .stat-card .stat-label { font-size: 10.5px; color: var(--text-dim); letter-spacing: .05em; text-transform: uppercase; margin-top: 2px; }
+
+  .spotlight { background: linear-gradient(155deg, rgba(242,183,5,.16), rgba(242,183,5,.04)); border: 2px dashed var(--yellow); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 20px; display: none; align-items: center; gap: 14px; }
+  .spotlight.show { display: flex; }
+  .spotlight-art { width: 52px; height: 52px; border-radius: 30% / 30%; background: var(--yellow); flex-shrink: 0; object-fit: cover; }
+  .spotlight-eyebrow { font-size: 10.5px; color: var(--yellow); letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }
+  .spotlight-title { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-top: 2px; }
+  .spotlight-sub { font-size: 12.5px; color: var(--text-dim); margin-top: 1px; }
+
+  .section-label { font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: .04em; color: var(--text-dim); margin: 4px 0 12px; }
+
+  .set-tile { background: var(--surface); border-radius: var(--radius-lg); padding: 14px; display: flex; flex-direction: column; gap: 10px; cursor: pointer; position: relative; }
+  .set-tile.is-wishlist { outline: 2px dashed var(--yellow); outline-offset: -2px; }
+  .set-art { width: 100%; aspect-ratio: 1/1; border-radius: 30% / 30%; background: linear-gradient(155deg, var(--yellow), #a87c04); display: flex; align-items: flex-start; justify-content: flex-start; padding: 12px; gap: 6px; overflow: hidden; }
+  .set-art img { width: 100%; height: 100%; object-fit: cover; margin: -12px; }
+  .set-art .stud-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,.55); }
+  .set-name { font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 1.2; }
+  .set-meta { font-size: 12.5px; color: var(--text-dim); }
+  .set-status-pill { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; margin-top: 2px; }
+  .set-status-pill.wishlist { background: rgba(242,183,5,.18); color: var(--yellow); }
+  .set-status-pill.building { background: rgba(62,142,126,.22); color: var(--teal); }
+  .set-status-pill.built { background: rgba(232,72,58,.18); color: var(--brick); }
+  .set-quick-btn { align-self: flex-start; font-family: var(--font-body); font-weight: 700; font-size: 12px; border: none; border-radius: 999px; padding: 7px 14px; cursor: pointer; background: var(--surface-2); color: var(--text); }
+  .set-quick-btn.gotit { background: var(--teal); color: #fff; }
+  .set-quick-btn.built { background: var(--brick); color: #fff; }
+
+  /* ---------- Modal ---------- */
+  #modalBackdrop { position: fixed; inset: 0; background: rgba(0,0,0,.5); display: none; align-items: center; justify-content: center; z-index: 100; padding: 24px; }
+  #modalBackdrop.active { display: flex; }
+  .modal { background: var(--surface); border-radius: var(--radius-lg); padding: 26px; width: 100%; max-width: 420px; max-height: 86vh; overflow-y: auto; }
+  .modal h3 { font-family: var(--font-display); margin: 0 0 4px; font-size: 20px; }
+  .modal .modal-note { color: var(--text-dim); font-size: 13px; margin-bottom: 16px; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 12.5px; color: var(--text-dim); margin-bottom: 6px; font-weight: 600; }
+  .field input, .field select { width: 100%; background: var(--surface-2); border: none; border-radius: var(--radius-sm); padding: 12px 14px; color: var(--text); font-family: var(--font-body); font-size: 14.5px; }
+  .cover-picker { display: flex; align-items: center; gap: 14px; }
+  .cover-preview { width: 72px; height: 72px; border-radius: 28% / 28%; background: var(--surface-2); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--text-dim); }
+  .cover-preview img { width: 100%; height: 100%; object-fit: cover; border-radius: 28% / 28%; }
+  .modal-actions { display: flex; gap: 10px; margin-top: 18px; justify-content: flex-end; }
+  .queue-note { font-size: 12px; color: var(--text-dim); margin-bottom: 14px; }
+
+  input[type=file] { display: none; }
+
+  /* ---------- Debug console ---------- */
+  #debugToggle { position: fixed; top: calc(env(safe-area-inset-top,0px) + 10px); right: 10px; width: 34px; height: 34px; border-radius: 30% / 30%; background: var(--surface-2); border: none; color: var(--text-dim); display: flex; align-items: center; justify-content: center; z-index: 210; opacity: .55; }
+  #debugToggle svg { width: 17px; height: 17px; }
+  #debugToggle.has-errors { color: #fff; background: var(--brick); opacity: 1; }
+  #debugConsole { position: fixed; left: 0; right: 0; bottom: 0; max-height: 46vh; background: var(--surface); border-top: 1px solid var(--stud); z-index: 200; display: none; flex-direction: column; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  #debugConsole.open { display: flex; }
+  .debug-bar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid var(--stud); flex-shrink: 0; }
+  .debug-bar span { font-family: var(--font-display); font-weight: 700; font-size: 13px; }
+  .debug-bar div { display: flex; gap: 8px; }
+  .debug-bar button { background: var(--surface-2); border: none; color: var(--text); border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  #debugList { flex: 1; overflow-y: auto; padding: 8px 14px 14px; font-family: ui-monospace, monospace; font-size: 11.5px; line-height: 1.5; }
+  .debug-line { padding: 5px 0; border-bottom: 1px solid var(--surface-2); white-space: pre-wrap; word-break: break-word; }
+  .debug-line.warn { color: var(--yellow); }
+  .debug-line.error { color: var(--brick); }
+  .debug-line .debug-time { color: var(--text-dim); margin-right: 8px; }
+
+  @media (max-width: 640px) {
+    #rail { width: 84px; }
+    .mode-btn { width: 60px; height: 60px; font-size: 10.5px; }
+    #nowPlaying { left: 84px; padding: 10px 14px calc(12px + env(safe-area-inset-bottom,0px)); }
+    .view-header { padding: calc(env(safe-area-inset-top,0px) + 18px) 16px 12px; }
+    .scroll { padding: 4px 16px 140px; }
+    .np-progress { display: none; }
+    .pdf-bar-title { max-width: 40vw; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+  <nav id="rail">
+    <div class="rail-logo">
+      <svg viewBox="0 0 24 24" fill="#fff">
+        <circle cx="8" cy="7.5" r="2.1"></circle>
+        <circle cx="16" cy="7.5" r="2.1"></circle>
+        <rect x="6.1" y="13.6" width="2.6" height="5.4" rx="1.3"></rect>
+        <rect x="10.7" y="11.4" width="2.6" height="7.6" rx="1.3"></rect>
+        <rect x="15.3" y="13" width="2.6" height="6" rx="1.3"></rect>
+      </svg>
+    </div>
+    <button class="mode-btn active" data-mode="build" onclick="setMode('build')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+      Build
+    </button>
+    <button class="mode-btn" data-mode="sound" onclick="setMode('sound')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+      Sound
+    </button>
+    <button class="mode-btn" data-mode="collection" onclick="setMode('collection')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="11" rx="2"></rect><circle cx="9" cy="6" r="1.6" fill="currentColor" stroke="none"></circle><circle cx="15" cy="6" r="1.6" fill="currentColor" stroke="none"></circle></svg>
+      Lego HQ
+    </button>
+    <div class="rail-spacer"></div>
+  </nav>
+
+  <main id="main">
+    <!-- BUILD VIEW -->
+    <section class="view active" id="view-build">
+      <div class="view-header">
+        <div>
+          <h1 class="view-title">Instructions</h1>
+          <div class="view-sub" id="buildSub">Your Lego manuals, ready to build from</div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap: wrap;">
+          <button class="btn ghost" onclick="openBackupModal()" title="Backup & restore">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19a5 5 0 0 1-1-9.9A6 6 0 0 1 17.5 8.5 4.5 4.5 0 0 1 17 17.5"></path><path d="M12 12v8M9 17l3 3 3-3"></path></svg>
+          </button>
+          <button class="btn ghost" onclick="openFolderGuideModal()" title="How folder import works">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 0 1 5 .5c0 1.7-2.2 1.9-2.4 3.3"></path><circle cx="12" cy="16.3" r=".4" fill="currentColor" stroke="none"></circle></svg>
+          </button>
+          <button class="btn ghost" onclick="document.getElementById('folderImportInput').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"></path></svg>
+            Import from Files
+          </button>
+          <button class="btn" onclick="document.getElementById('pdfInput').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+            Add PDF
+          </button>
+        </div>
+        <input type="file" id="pdfInput" accept="application/pdf" multiple>
+      </div>
+      <div class="scroll"><div class="tile-grid" id="buildGrid"></div></div>
+    </section>
+
+    <!-- SOUND VIEW -->
+    <section class="view" id="view-sound">
+      <div class="view-header">
+        <div>
+          <h1 class="view-title">Sound</h1>
+          <div class="view-sub">Play music while you build</div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap: wrap;">
+          <button class="btn ghost" onclick="openBackupModal()" title="Backup & restore">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19a5 5 0 0 1-1-9.9A6 6 0 0 1 17.5 8.5 4.5 4.5 0 0 1 17 17.5"></path><path d="M12 12v8M9 17l3 3 3-3"></path></svg>
+          </button>
+          <button class="btn ghost" onclick="openFolderGuideModal()" title="How folder import works">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.5 9a2.5 2.5 0 0 1 5 .5c0 1.7-2.2 1.9-2.4 3.3"></path><circle cx="12" cy="16.3" r=".4" fill="currentColor" stroke="none"></circle></svg>
+          </button>
+          <button class="btn ghost" onclick="document.getElementById('folderImportInput').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"></path></svg>
+            Import from Files
+          </button>
+          <button class="btn ghost" onclick="openPlaylistModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+            New playlist
+          </button>
+          <button class="btn teal" onclick="document.getElementById('mp3Input').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+            Add songs
+          </button>
+          <input type="file" id="mp3Input" accept="audio/*" multiple>
+        </div>
+      </div>
+      <div style="padding: 0 28px;">
+        <div class="segmented" id="soundSeg">
+          <button class="active" data-seg="albums" onclick="setSoundSeg('albums')">Albums</button>
+          <button data-seg="artists" onclick="setSoundSeg('artists')">Artists</button>
+          <button data-seg="genres" onclick="setSoundSeg('genres')">Genres</button>
+          <button data-seg="tags" onclick="setSoundSeg('tags')">Tags</button>
+          <button data-seg="playlists" onclick="setSoundSeg('playlists')">Playlists</button>
+          <button data-seg="favorites" onclick="setSoundSeg('favorites')">Favorites</button>
+          <button data-seg="all" onclick="setSoundSeg('all')">All songs</button>
+        </div>
+      </div>
+      <div class="scroll" id="soundScroll"></div>
+    </section>
+
+    <!-- COLLECTION (LEGO HQ) VIEW -->
+    <section class="view" id="view-collection">
+      <div class="view-header">
+        <div>
+          <h1 class="view-title">Lego HQ</h1>
+          <div class="view-sub">Every set — wishlist to built</div>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap: wrap;">
+          <button class="btn ghost" onclick="openBackupModal()" title="Backup & restore">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 19a5 5 0 0 1-1-9.9A6 6 0 0 1 17.5 8.5 4.5 4.5 0 0 1 17 17.5"></path><path d="M12 12v8M9 17l3 3 3-3"></path></svg>
+          </button>
+          <button class="btn" style="background: var(--yellow); color: #241c00;" onclick="openAddSetModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg>
+            Add set
+          </button>
+        </div>
+      </div>
+      <div class="scroll">
+        <div class="stat-grid">
+          <div class="stat-card"><span class="stat-num" id="legoBuiltCount">0</span><span class="stat-label">Sets built</span></div>
+          <div class="stat-card"><span class="stat-num" id="legoPieceCount">0</span><span class="stat-label">Pieces owned</span></div>
+          <div class="stat-card"><span class="stat-num" id="legoWishCount">0</span><span class="stat-label">On wishlist</span></div>
+          <div class="stat-card"><span class="stat-num" id="legoWishValue">$0</span><span class="stat-label">Wishlist value</span></div>
+        </div>
+        <div class="spotlight" id="legoSpotlight"></div>
+        <div class="segmented" id="legoSegControl" style="margin-bottom:16px;">
+          <button data-lego-seg="all" onclick="setLegoSeg('all')">All</button>
+          <button data-lego-seg="wishlist" onclick="setLegoSeg('wishlist')">Wishlist</button>
+          <button data-lego-seg="building" onclick="setLegoSeg('building')">Building</button>
+          <button data-lego-seg="built" onclick="setLegoSeg('built')">Built</button>
+          <button data-lego-seg="theme" onclick="setLegoSeg('theme')">By theme</button>
+        </div>
+        <div class="section-label" id="legoSectionLabel">THE COLLECTION</div>
+        <div class="tile-grid" id="legoGrid"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div id="nowPlaying">
+  <div class="np-card">
+    <img class="np-art" id="npArt">
+    <div class="np-art-fallback" id="npArtFallback"></div>
+    <div class="np-meta">
+      <div class="np-title" id="npTitle">Nothing playing</div>
+      <div class="np-artist" id="npArtist">—</div>
+    </div>
+    <div class="np-progress">
+      <span class="np-time" id="npCur">0:00</span>
+      <input type="range" id="npSeek" min="0" max="100" value="0">
+      <span class="np-time" id="npDur">0:00</span>
+    </div>
+    <div class="np-controls">
+      <button onclick="prevTrack()" title="Previous"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM20 6l-10 6 10 6z"/></svg></button>
+      <button class="play" onclick="togglePlay()"><svg viewBox="0 0 24 24" fill="currentColor" id="npPlayIcon"><path d="M8 5v14l11-7z"/></svg></button>
+      <button onclick="nextTrack()" title="Next"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM4 6l10 6-10 6z"/></svg></button>
+    </div>
+    <div class="np-volume">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M11 5 6 9H3v6h3l5 4V5Z"></path><path d="M16 8a5 5 0 0 1 0 8"></path></svg>
+      <input type="range" id="npVolume" min="0" max="1" step="0.01" value="1">
+    </div>
+  </div>
+</div>
+
+<div id="pdfOverlay">
+  <div class="pdf-bar">
+    <button class="icon-btn" onclick="closePdf()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+    <div class="pdf-bar-mid">
+      <img class="pdf-bar-cover" id="pdfBarCover" style="display:none;">
+      <div>
+        <div class="pdf-bar-title" id="pdfTitle">—</div>
+        <div class="pdf-bar-sub" id="pdfSub">—</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:8px;">
+      <button class="icon-btn" onclick="openEditManualModal()" title="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button>
+      <button class="icon-btn" onclick="deleteCurrentPdf()" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></button>
+    </div>
+  </div>
+  <div id="pdfCanvasWrap"><canvas id="pdfCanvas"></canvas></div>
+  <div class="pdf-nav">
+    <button class="icon-btn" onclick="pdfPrevPage()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <div class="pdf-page-indicator" id="pdfPageIndicator">Page 1 / 1</div>
+    <button class="icon-btn" onclick="pdfNextPage()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+</div>
+
+<div id="modalBackdrop"><div class="modal" id="modalBody"></div></div>
+
+<button id="debugToggle" onclick="toggleDebugConsole()" title="Debug console">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+</button>
+<div id="debugConsole">
+  <div class="debug-bar">
+    <span>Debug console</span>
+    <div>
+      <button onclick="clearDebugLog()">Clear</button>
+      <button onclick="toggleDebugConsole()">Hide</button>
+    </div>
+  </div>
+  <div id="debugList"></div>
+</div>
+
+<audio id="audioEl"></audio>
+<input type="file" id="folderImportInput" multiple accept="audio/*,.mp3,.m4a,.wav,.aac,.ogg,.flac,application/pdf" style="display:none;">
+<input type="file" id="backupImportInput" accept="application/json,.json" style="display:none;">
+
+<script>
+/* ============================= DEBUG CONSOLE ============================= */
+// iPads have no way to see console output, so this captures it into an on-screen panel
+// you can pop open with the top-right button — install this before anything else runs
+// so it catches errors from the very first line.
+const debugLog = [];
+let debugConsoleOpen = false;
+function formatDebugArg(a) {
+  if (typeof a === 'string') return a;
+  if (a instanceof Error) return a.message;
+  try { return JSON.stringify(a); } catch (e) { return String(a); }
+}
+function pushDebugLog(level, args) {
+  debugLog.push({ level, time: new Date(), msg: args.map(formatDebugArg).join(' ') });
+  if (debugLog.length > 400) debugLog.shift();
+  if (level !== 'log') document.getElementById('debugToggle') && document.getElementById('debugToggle').classList.add('has-errors');
+  if (debugConsoleOpen) renderDebugConsole();
+}
+['log', 'warn', 'error'].forEach(level => {
+  const orig = console[level] ? console[level].bind(console) : () => {};
+  console[level] = (...args) => { orig(...args); pushDebugLog(level, args); };
+});
+window.addEventListener('error', (e) => pushDebugLog('error', [`Uncaught: ${e.message} (${(e.filename || '').split('/').pop()}:${e.lineno})`]));
+window.addEventListener('unhandledrejection', (e) => pushDebugLog('error', ['Unhandled promise rejection: ' + formatDebugArg(e.reason)]));
+
+function toggleDebugConsole() {
+  debugConsoleOpen = !debugConsoleOpen;
+  document.getElementById('debugConsole').classList.toggle('open', debugConsoleOpen);
+  if (debugConsoleOpen) {
+    document.getElementById('debugToggle').classList.remove('has-errors');
+    renderDebugConsole();
+  }
+}
+function clearDebugLog() {
+  debugLog.length = 0;
+  renderDebugConsole();
+}
+function renderDebugConsole() {
+  const el = document.getElementById('debugList');
+  if (!el) return;
+  if (!debugLog.length) {
+    el.innerHTML = '<div class="debug-line" style="color:var(--text-dim);">Nothing logged yet.</div>';
+    return;
+  }
+  el.innerHTML = debugLog.map(entry =>
+    `<div class="debug-line ${entry.level}"><span class="debug-time">${entry.time.toLocaleTimeString()}</span>${escapeHtml(entry.msg)}</div>`
+  ).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+/* ============================= IndexedDB layer (never throws) ============================= */
+const DB_NAME = 'brickAndSound';
+const DB_VERSION = 3;
+let db;
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = (e) => {
+      const d = e.target.result;
+      if (!d.objectStoreNames.contains('manuals')) d.createObjectStore('manuals', { keyPath: 'id' });
+      if (!d.objectStoreNames.contains('tracks')) d.createObjectStore('tracks', { keyPath: 'id' });
+      if (!d.objectStoreNames.contains('playlists')) d.createObjectStore('playlists', { keyPath: 'id' });
+      if (!d.objectStoreNames.contains('legoSets')) d.createObjectStore('legoSets', { keyPath: 'id' });
+      if (!d.objectStoreNames.contains('meta')) d.createObjectStore('meta', { keyPath: 'key' });
+    };
+    req.onsuccess = (e) => { db = e.target.result; resolve(db); };
+    req.onerror = (e) => reject(e);
+  });
+}
+function tx(store, mode='readonly') { return db.transaction(store, mode).objectStore(store); }
+function dbGetAll(store) {
+  return new Promise((resolve) => {
+    try {
+      const req = tx(store).getAll();
+      req.onsuccess = () => resolve(req.result || []);
+      req.onerror = (e) => { console.warn('dbGetAll failed', store, e); resolve([]); };
+    } catch (err) { console.warn('dbGetAll threw', err); resolve([]); }
+  });
+}
+function dbGet(store, key) {
+  return new Promise((resolve) => {
+    try {
+      const req = tx(store).get(key);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = (e) => { console.warn('dbGet failed', store, e); resolve(null); };
+    } catch (err) { console.warn('dbGet threw', err); resolve(null); }
+  });
+}
+function setMeta(key, value) { return dbPut('meta', { key, value }); }
+async function getMeta(key, fallback) {
+  const rec = await dbGet('meta', key);
+  return rec ? rec.value : fallback;
+}
+function dbPut(store, val) {
+  return new Promise((resolve) => {
+    try {
+      const req = tx(store, 'readwrite').put(val);
+      req.onsuccess = () => resolve(true);
+      req.onerror = (e) => { console.warn('dbPut failed', store, e); resolve(false); };
+    } catch (err) { console.warn('dbPut threw', err); resolve(false); }
+  });
+}
+function dbDelete(store, id) {
+  return new Promise((resolve) => {
+    try {
+      const req = tx(store, 'readwrite').delete(id);
+      req.onsuccess = () => resolve(true);
+      req.onerror = (e) => { console.warn('dbDelete failed', store, e); resolve(false); };
+    } catch (err) { console.warn('dbDelete threw', err); resolve(false); }
+  });
+}
+
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+const PDF_PAGE_SIZES = {
+  leaflet: { label: 'Small Foldable Leaflet (2 × 2.5")', w: 2,   h: 2.5 },
+  staple:  { label: 'Small Staple-Bound (4 × 5")',        w: 4,   h: 5   },
+  compact: { label: 'Compact / Medium (8 × 5")',          w: 8,   h: 5   },
+  square:  { label: 'Near-Square Medium (7.5 × 7")',      w: 7.5, h: 7   },
+  letter:  { label: 'Standard Letter / Portrait (8.5 × 11") — most sets', w: 8.5, h: 11 },
+  ucs:     { label: 'Large / UCS Spiral-Bound (11 × 17")', w: 11,  h: 17 }
+};
+function pageSizeSelectHtml(selectedKey) {
+  return `<select id="manualSizeInput">${Object.entries(PDF_PAGE_SIZES).map(([key, s]) =>
+    `<option value="${key}" ${key === selectedKey ? 'selected' : ''}>${escapeHtml(s.label)}</option>`
+  ).join('')}</select>`;
+}
+
+// A small built-in catalog of well-known sets so you don't have to type everything by
+// hand for the common ones. Piece counts and prices are approximate from memory (MSRP,
+// no region/tax) — meant as a fast starting point, not an authoritative price guide, so
+// always feel free to correct them after picking one.
+const LEGO_SET_CATALOG = [
+  { num: '75192', name: 'Millennium Falcon (UCS)', theme: 'Star Wars', pieces: 7541, price: 849.99 },
+  { num: '75313', name: 'AT-AT (UCS)', theme: 'Star Wars', pieces: 6785, price: 849.99 },
+  { num: '75252', name: 'Imperial Star Destroyer (UCS)', theme: 'Star Wars', pieces: 4784, price: 699.99 },
+  { num: '75309', name: 'Republic Gunship (UCS)', theme: 'Star Wars', pieces: 3292, price: 299.99 },
+  { num: '75331', name: 'The Razor Crest', theme: 'Star Wars', pieces: 6187, price: 599.99 },
+  { num: '75159', name: 'Death Star', theme: 'Star Wars', pieces: 4016, price: 499.99 },
+  { num: '42171', name: 'Mercedes-AMG F1 W14 E Performance', theme: 'Technic', pieces: 1642, price: 219.99 },
+  { num: '42154', name: 'McLaren P1', theme: 'Technic', pieces: 3893, price: 449.99 },
+  { num: '42115', name: 'Lamborghini Sián FKP 37', theme: 'Technic', pieces: 3696, price: 379.99 },
+  { num: '42083', name: 'Bugatti Chiron', theme: 'Technic', pieces: 3599, price: 349.99 },
+  { num: '76909', name: 'Mercedes-AMG F1 W12 E Performance', theme: 'Speed Champions', pieces: 564, price: 59.99 },
+  { num: '76919', name: 'Oracle Red Bull Racing RB19', theme: 'Speed Champions', pieces: 693, price: 64.99 },
+  { num: '10330', name: 'McLaren MP4/4 & Ayrton Senna', theme: 'Icons', pieces: 693, price: 74.99 },
+  { num: '10281', name: 'Bonsai Tree', theme: 'Icons', pieces: 878, price: 49.99 },
+  { num: '10280', name: 'Flower Bouquet', theme: 'Icons', pieces: 756, price: 59.99 },
+  { num: '10326', name: 'Natural History Museum', theme: 'Icons', pieces: 4400, price: 299.99 },
+  { num: '10316', name: 'The Lord of the Rings: Rivendell', theme: 'Icons', pieces: 6167, price: 499.99 },
+  { num: '10297', name: 'Boutique Hotel', theme: 'Icons (Modular)', pieces: 3066, price: 229.99 },
+  { num: '10278', name: 'Police Station', theme: 'Icons (Modular)', pieces: 2923, price: 199.99 },
+  { num: '71043', name: 'Hogwarts Castle', theme: 'Harry Potter', pieces: 6020, price: 469.99 },
+  { num: '76218', name: 'Sanctum Sanctorum', theme: 'Marvel', pieces: 2708, price: 249.99 },
+  { num: '71741', name: "Ninjago City Gardens", theme: 'Ninjago', pieces: 5685, price: 299.99 },
+  { num: '60380', name: 'City Center', theme: 'City', pieces: 2175, price: 189.99 },
+  { num: '21058', name: 'Great Pyramid of Giza', theme: 'Architecture', pieces: 1476, price: 129.99 },
+  { num: '21028', name: 'New York City', theme: 'Architecture', pieces: 598, price: 49.99 }
+];
+function popularSetSelectHtml() {
+  return `<select id="popularSetPicker" onchange="applyPopularSet(this.value)">
+    <option value="">— pick a set to auto-fill (optional) —</option>
+    ${LEGO_SET_CATALOG.map((s, i) => `<option value="${i}">${escapeHtml(s.num)} — ${escapeHtml(s.name)}</option>`).join('')}
+  </select>`;
+}
+function applyPopularSet(idxStr) {
+  if (idxStr === '') return;
+  const s = LEGO_SET_CATALOG[Number(idxStr)];
+  if (!s) return;
+  document.getElementById('setNameInput').value = s.name;
+  document.getElementById('setPiecesInput').value = s.pieces;
+  document.getElementById('setPriceInput').value = s.price;
+  document.getElementById('setThemeInput').value = s.theme;
+  document.getElementById('setNumInput').value = s.num;
+}
+function readAsDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
+function escapeHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function emptyStateHtml(title, body) {
+  return `<div class="empty-state"><b>${title}</b><br>${body}</div>`;
+}
+
+/* ============================= State ============================= */
+let manuals = [];
+let tracks = [];
+let playlists = [];
+let legoSets = [];
+let soundSeg = 'albums';
+let legoSeg = 'all';
+let currentQueue = [];
+let currentIndex = -1;
+let currentPdf = null;
+let currentPdfObjectUrl = null;
+let pendingManualFiles = [];
+let pendingCoverDataUrl = null;
+let pendingSetCoverDataUrl = null;
+let restoringPlayback = false;
+
+(async function boot() {
+  await openDB();
+  manuals = await dbGetAll('manuals');
+  tracks = await dbGetAll('tracks');
+  playlists = await dbGetAll('playlists');
+  legoSets = await dbGetAll('legoSets');
+  // migrate older records so every field this version relies on actually exists
+  tracks.forEach(t => { if (t.favorite === undefined) t.favorite = false; if (!t.tags) t.tags = []; });
+  legoSets.forEach(s => { if (s.theme === undefined) s.theme = ''; });
+
+  const savedMode = await getMeta('lastMode', 'build');
+  soundSeg = await getMeta('lastSoundSeg', 'albums');
+  legoSeg = await getMeta('lastLegoSeg', 'all');
+  const savedVolume = await getMeta('volume', 1);
+
+  renderBuild();
+  setSoundSeg(soundSeg);
+  setLegoSeg(legoSeg);
+  setMode(savedMode);
+
+  audioEl.volume = savedVolume;
+  document.getElementById('npVolume').value = savedVolume;
+  await restorePlaybackState();
+
+  tryAutoMergeBackupFile(); // fire-and-forget: silently no-ops if there's no backup.json
+})();
+
+async function restorePlaybackState() {
+  const saved = await getMeta('playbackState', null);
+  if (!saved || !saved.queueIds || !saved.queueIds.length) return;
+  const restoredQueue = saved.queueIds.map(id => tracks.find(t => t.id === id)).filter(Boolean);
+  if (!restoredQueue.length) return;
+  const idx = Math.min(saved.index || 0, restoredQueue.length - 1);
+  restoringPlayback = true;
+  currentQueue = restoredQueue;
+  currentIndex = idx;
+  loadCurrentTrack(false);
+  const targetTime = saved.currentTime || 0;
+  audioEl.addEventListener('loadedmetadata', function onMeta() {
+    audioEl.currentTime = Math.min(targetTime, audioEl.duration || targetTime);
+    audioEl.removeEventListener('loadedmetadata', onMeta);
+    restoringPlayback = false;
+  });
+}
+
+function setMode(mode) {
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  document.getElementById('view-build').classList.toggle('active', mode === 'build');
+  document.getElementById('view-sound').classList.toggle('active', mode === 'sound');
+  document.getElementById('view-collection').classList.toggle('active', mode === 'collection');
+  setMeta('lastMode', mode);
+}
+
+/* ============================= BUILD: PDF manuals ============================= */
+document.getElementById('pdfInput').addEventListener('change', (e) => {
+  pendingManualFiles = Array.from(e.target.files);
+  e.target.value = '';
+  if (pendingManualFiles.length) processNextManual();
+});
+
+function processNextManual() {
+  if (pendingManualFiles.length === 0) { renderBuild(); return; }
+  const file = pendingManualFiles[0];
+  pendingCoverDataUrl = null;
+  const defaultName = file.name.replace(/\.pdf$/i, '');
+  const remaining = pendingManualFiles.length - 1;
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>Name this set</h3>
+    <div class="modal-note">${escapeHtml(file.name)}</div>
+    ${remaining > 0 ? `<div class="queue-note">${remaining} more PDF${remaining === 1 ? '' : 's'} after this one</div>` : ''}
+    <div class="field"><label>Name</label><input id="manualNameInput" value="${escapeHtml(defaultName)}" placeholder="e.g. Millennium Falcon"></div>
+    <div class="field"><label>Set number (optional)</label><input id="manualSetInput" placeholder="e.g. 75192"></div>
+    <div class="field"><label>Booklet size</label>${pageSizeSelectHtml('letter')}</div>
+    <div class="field">
+      <label>Banner image (optional)</label>
+      <div class="cover-picker">
+        <div class="cover-preview" id="coverPreview"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-5-5L5 21"></path></svg></div>
+        <button class="btn ghost" type="button" onclick="document.getElementById('coverInput').click()">Choose photo</button>
+        <input type="file" id="coverInput" accept="image/*">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" onclick="skipPendingManual()">Skip</button>
+      <button class="btn" onclick="savePendingManual()">${remaining > 0 ? 'Save & next' : 'Save'}</button>
+    </div>
+  `;
+  document.getElementById('coverInput').addEventListener('change', async (ev) => {
+    const f = ev.target.files[0];
+    if (!f) return;
+    pendingCoverDataUrl = await readAsDataURL(f);
+    document.getElementById('coverPreview').innerHTML = `<img src="${pendingCoverDataUrl}">`;
+  });
+  document.getElementById('modalBackdrop').classList.add('active');
+  setTimeout(() => document.getElementById('manualNameInput').focus(), 50);
+}
+async function savePendingManual() {
+  const file = pendingManualFiles.shift();
+  const name = document.getElementById('manualNameInput').value.trim() || file.name.replace(/\.pdf$/i, '');
+  const setNumber = document.getElementById('manualSetInput').value.trim();
+  const pageSize = document.getElementById('manualSizeInput').value;
+  const manual = { id: uid(), name, setNumber, pageSize, blob: file, cover: pendingCoverDataUrl || null };
+  manuals.push(manual);
+  renderBuild();
+  closeModal();
+  dbPut('manuals', manual);
+  if (pendingManualFiles.length) processNextManual();
+}
+function skipPendingManual() {
+  pendingManualFiles.shift();
+  closeModal();
+  if (pendingManualFiles.length) processNextManual(); else renderBuild();
+}
+
+function renderBuild() {
+  const grid = document.getElementById('buildGrid');
+  const existingEmpty = grid.parentElement.querySelector('.empty-state');
+  if (existingEmpty) existingEmpty.remove();
+  document.getElementById('buildSub').textContent = manuals.length
+    ? `${manuals.length} manual${manuals.length === 1 ? '' : 's'} in your library`
+    : 'Your Lego manuals, ready to build from';
+  grid.innerHTML = '';
+  manuals.forEach(m => {
+    const tile = document.createElement('button');
+    tile.className = 'tile';
+    tile.onclick = () => openPdf(m.id);
+    tile.innerHTML = `
+      <div class="tile-art brick-art">
+        ${m.cover ? `<img src="${m.cover}">` : `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M8 8h8M8 12h8M8 16h5"></path></svg>`}
+      </div>
+      <div class="tile-name">${escapeHtml(m.name)}</div>
+      <div class="tile-meta">${m.setNumber ? 'Set ' + escapeHtml(m.setNumber) : 'Lego instructions'}${m.pageSize && m.pageSize !== 'letter' ? ' · ' + escapeHtml(PDF_PAGE_SIZES[m.pageSize].label.split(' (')[0]) : ''}${m.lastPage > 1 ? ' · p.' + m.lastPage : ''}</div>
+    `;
+    grid.appendChild(tile);
+  });
+  const addTile = document.createElement('button');
+  addTile.className = 'tile add-tile';
+  addTile.onclick = () => document.getElementById('pdfInput').click();
+  addTile.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>`;
+  grid.appendChild(addTile);
+  if (manuals.length === 0) {
+    grid.insertAdjacentHTML('beforebegin', emptyStateHtml('No instructions yet.', 'Tap "Add PDF" and pick a Lego instruction booklet — you\'ll get to name it and pick a banner photo, then it shows up here as a tile.'));
+  }
+}
+
+async function openPdf(id) {
+  const manual = manuals.find(m => m.id === id);
+  if (!manual) return;
+  document.getElementById('pdfTitle').textContent = manual.name;
+  document.getElementById('pdfSub').textContent = 'Loading…';
+  const cover = document.getElementById('pdfBarCover');
+  if (manual.cover) { cover.src = manual.cover; cover.style.display = 'block'; } else { cover.style.display = 'none'; }
+  const overlay = document.getElementById('pdfOverlay');
+  overlay.classList.add('active');
+  showPdfControls();
+  if (overlay.requestFullscreen) { overlay.requestFullscreen().catch(() => {}); }
+  try {
+    if (currentPdfObjectUrl) { URL.revokeObjectURL(currentPdfObjectUrl); currentPdfObjectUrl = null; }
+    let doc;
+    try {
+      // Loading from an object URL lets pdf.js stream the file instead of pulling the
+      // whole thing into memory at once — better for big Lego manuals.
+      currentPdfObjectUrl = URL.createObjectURL(manual.blob);
+      doc = await pdfjsLib.getDocument({ url: currentPdfObjectUrl }).promise;
+    } catch (streamErr) {
+      // Some environments block fetching blob: URLs from pdf.js's worker entirely
+      // (that's what the "Unexpected server response (0)" error means). When that
+      // happens, fall back to just handing pdf.js the raw bytes directly instead.
+      console.warn('Streamed PDF load failed, falling back to direct load', streamErr);
+      if (currentPdfObjectUrl) { URL.revokeObjectURL(currentPdfObjectUrl); currentPdfObjectUrl = null; }
+      const arrayBuf = await manual.blob.arrayBuffer();
+      doc = await pdfjsLib.getDocument({ data: arrayBuf }).promise;
+    }
+    const resumePage = Math.min(Math.max(manual.lastPage || 1, 1), doc.numPages);
+    currentPdf = { manualId: id, doc, pageNum: resumePage };
+    document.getElementById('pdfSub').textContent = `${doc.numPages} page${doc.numPages === 1 ? '' : 's'}${manual.setNumber ? ' · Set ' + manual.setNumber : ''}`;
+    renderPdfPage();
+  } catch (err) {
+    document.getElementById('pdfSub').textContent = 'Could not open this PDF — it may be too large or damaged';
+    console.warn(err);
+  }
+}
+async function renderPdfPage() {
+  if (!currentPdf) return;
+  const canvas = document.getElementById('pdfCanvas');
+  const ctx = canvas.getContext('2d');
+  const wrap = document.getElementById('pdfCanvasWrap');
+  document.getElementById('pdfPageIndicator').textContent = `Page ${currentPdf.pageNum} / ${currentPdf.doc.numPages}`;
+  const manual = manuals.find(m => m.id === currentPdf.manualId);
+  const preset = PDF_PAGE_SIZES[manual && manual.pageSize] || PDF_PAGE_SIZES.letter;
+  try {
+    const page = await currentPdf.doc.getPage(currentPdf.pageNum);
+    const unscaled = page.getViewport({ scale: 1 });
+    // Fit the *entire* page inside the visible area at once — no scrolling to see the
+    // rest of it — while capping resolution based on the booklet size you picked, so a
+    // tiny leaflet doesn't get asked to render at poster size (and a huge UCS manual
+    // still gets enough pixels to read the fine print) without overloading Safari.
+    const dpiCapW = preset.w * 220;
+    const dpiCapH = preset.h * 220;
+    const availWidth = Math.max(wrap.clientWidth - 24, 240);
+    const availHeight = Math.max(wrap.clientHeight - 24, 240);
+    const scale = Math.min(availWidth / unscaled.width, availHeight / unscaled.height, dpiCapW / unscaled.width, dpiCapH / unscaled.height);
+    const viewport = page.getViewport({ scale });
+    canvas.width = Math.round(viewport.width);
+    canvas.height = Math.round(viewport.height);
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    if (manual && manual.lastPage !== currentPdf.pageNum) {
+      manual.lastPage = currentPdf.pageNum;
+      dbPut('manuals', manual);
+    }
+  } catch (err) {
+    console.warn('Page render failed', err);
+    try { ctx.clearRect(0, 0, canvas.width, canvas.height); } catch(e) {}
+    document.getElementById('pdfSub').textContent = 'Could not render this page — try the next one';
+  }
+}
+function pdfNextPage() { if (currentPdf && currentPdf.pageNum < currentPdf.doc.numPages) { currentPdf.pageNum++; renderPdfPage(); } showPdfControls(); }
+function pdfPrevPage() { if (currentPdf && currentPdf.pageNum > 1) { currentPdf.pageNum--; renderPdfPage(); } showPdfControls(); }
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('pdfOverlay').classList.contains('active')) return;
+  if (e.key === 'ArrowRight') pdfNextPage();
+  if (e.key === 'ArrowLeft') pdfPrevPage();
+  if (e.key === 'Escape') closePdf();
+});
+function closePdf() {
+  const overlay = document.getElementById('pdfOverlay');
+  overlay.classList.remove('active');
+  clearTimeout(pdfControlsTimer);
+  if (document.fullscreenElement === overlay) { document.exitFullscreen().catch(() => {}); }
+  if (currentPdf && currentPdf.doc) { try { currentPdf.doc.destroy(); } catch(e) {} }
+  if (currentPdfObjectUrl) { URL.revokeObjectURL(currentPdfObjectUrl); currentPdfObjectUrl = null; }
+  currentPdf = null;
+}
+
+// Nav/title bars fade out after a few seconds of no interaction so the page fills the
+// screen; any tap on the page (or turning a page) brings them right back.
+let pdfControlsTimer = null;
+function showPdfControls() {
+  document.getElementById('pdfOverlay').classList.remove('controls-hidden');
+  clearTimeout(pdfControlsTimer);
+  pdfControlsTimer = setTimeout(() => document.getElementById('pdfOverlay').classList.add('controls-hidden'), 3000);
+}
+document.getElementById('pdfCanvasWrap').addEventListener('click', () => showPdfControls());
+window.addEventListener('resize', () => { if (currentPdf) renderPdfPage(); });
+async function deleteCurrentPdf() {
+  if (!currentPdf) return;
+  if (!confirm('Remove this manual from your library?')) return;
+  const id = currentPdf.manualId;
+  manuals = manuals.filter(m => m.id !== id);
+  await dbDelete('manuals', id);
+  closePdf();
+  renderBuild();
+}
+function openEditManualModal() {
+  if (!currentPdf) return;
+  const manual = manuals.find(m => m.id === currentPdf.manualId);
+  if (!manual) return;
+  pendingCoverDataUrl = manual.cover || null;
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>Edit set info</h3>
+    <div class="field"><label>Name</label><input id="manualNameInput" value="${escapeHtml(manual.name)}"></div>
+    <div class="field"><label>Set number (optional)</label><input id="manualSetInput" value="${escapeHtml(manual.setNumber || '')}"></div>
+    <div class="field"><label>Booklet size</label>${pageSizeSelectHtml(manual.pageSize || 'letter')}</div>
+    <div class="field">
+      <label>Banner image</label>
+      <div class="cover-picker">
+        <div class="cover-preview" id="coverPreview">${manual.cover ? `<img src="${manual.cover}">` : ''}</div>
+        <button class="btn ghost" type="button" onclick="document.getElementById('coverInput').click()">Choose photo</button>
+        <input type="file" id="coverInput" accept="image/*">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn" onclick="saveManualEdit('${manual.id}')">Save</button>
+    </div>
+  `;
+  document.getElementById('coverInput').addEventListener('change', async (ev) => {
+    const f = ev.target.files[0];
+    if (!f) return;
+    pendingCoverDataUrl = await readAsDataURL(f);
+    document.getElementById('coverPreview').innerHTML = `<img src="${pendingCoverDataUrl}">`;
+  });
+  document.getElementById('modalBackdrop').classList.add('active');
+}
+async function saveManualEdit(id) {
+  const manual = manuals.find(m => m.id === id);
+  if (!manual) return;
+  manual.name = document.getElementById('manualNameInput').value.trim() || manual.name;
+  manual.setNumber = document.getElementById('manualSetInput').value.trim();
+  manual.pageSize = document.getElementById('manualSizeInput').value;
+  manual.cover = pendingCoverDataUrl;
+  document.getElementById('pdfTitle').textContent = manual.name;
+  const cover = document.getElementById('pdfBarCover');
+  if (manual.cover) { cover.src = manual.cover; cover.style.display = 'block'; } else { cover.style.display = 'none'; }
+  closeModal();
+  await dbPut('manuals', manual);
+  renderBuild();
+}
+
+/* ============================= SOUND: music ============================= */
+document.getElementById('mp3Input').addEventListener('change', async (e) => {
+  const files = Array.from(e.target.files);
+  e.target.value = '';
+  for (const file of files) {
+    const id = uid();
+    const guess = file.name.replace(/\.(mp3|m4a|wav|aac|ogg)$/i, '');
+    const track = { id, title: guess, artist: '', album: 'Unsorted', genre: 'Unsorted', tags: [], favorite: false, blob: file };
+    tracks.push(track);
+    dbPut('tracks', track);
+  }
+  renderSound();
+});
+
+function setSoundSeg(seg) {
+  soundSeg = seg;
+  document.querySelectorAll('#soundSeg button').forEach(b => b.classList.toggle('active', b.dataset.seg === seg));
+  renderSound();
+  setMeta('lastSoundSeg', seg);
+}
+function renderSound() {
+  const el = document.getElementById('soundScroll');
+  el.innerHTML = '';
+  if (soundSeg === 'albums') renderCategoryGrid(el, 'album', 'album-art', 'No albums yet.', 'Add some songs, then use the pencil on a track to sort it into an album.');
+  else if (soundSeg === 'artists') renderCategoryGrid(el, 'artist', 'artist-art', 'No artists yet.', 'Use the pencil on a track to fill in the artist.');
+  else if (soundSeg === 'genres') renderCategoryGrid(el, 'genre', 'genre-art', 'No genres yet.', 'Use the pencil on a track to tag it with a genre — Rap, Rock, whatever fits.');
+  else if (soundSeg === 'tags') renderCategoryGrid(el, 'tags', 'tag-art', 'No tags yet.', 'Add your own tags to a track from the pencil menu — moods, decades, whatever you want. A song can have as many as you like.');
+  else if (soundSeg === 'playlists') renderPlaylists(el);
+  else if (soundSeg === 'favorites') renderFlatList(el, tracks.filter(t => t.favorite), 'No favorites yet.', 'Tap the star on any song to pin it here.');
+  else renderFlatList(el, tracks, 'No songs yet.', 'Tap "Add songs" up top to bring in MP3s from your iPad.');
+}
+
+function groupIcon(kind) {
+  if (kind === 'album-art') return `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="2.4" fill="#fff" stroke="none"></circle></svg>`;
+  if (kind === 'artist-art') return `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 14a3.5 3.5 0 0 0 3.5-3.5V6a3.5 3.5 0 0 0-7 0v4.5A3.5 3.5 0 0 0 12 14Z"></path><path d="M6 11a6 6 0 0 0 12 0M12 17v3"></path></svg>`;
+  if (kind === 'genre-art') return `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`;
+  if (kind === 'tag-art') return `<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M20.6 12.6 12 21.2a2 2 0 0 1-2.8 0l-6.4-6.4a2 2 0 0 1 0-2.8L11.4 3.4a2 2 0 0 1 1.4-.6H19a2 2 0 0 1 2 2v5.8a2 2 0 0 1-.4 1.4Z"></path><circle cx="16.5" cy="7.5" r="1.5" fill="#fff" stroke="none"></circle></svg>`;
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="#241c00" stroke-width="1.8"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>`;
+}
+
+function trackKeysFor(t, type) {
+  if (type === 'tags') return (t.tags && t.tags.length) ? t.tags : ['Untagged'];
+  const val = (t[type] || 'Unsorted').trim();
+  return [val || 'Unsorted'];
+}
+
+function renderCategoryGrid(el, type, artClass, emptyTitle, emptyBody) {
+  const map = {};
+  tracks.forEach(t => { trackKeysFor(t, type).forEach(key => { (map[key] ||= []).push(t); }); });
+  const unsortedLabel = type === 'tags' ? 'Untagged' : 'Unsorted';
+  const names = Object.keys(map).sort((a,b) => a === unsortedLabel ? 1 : b === unsortedLabel ? -1 : a.localeCompare(b));
+  if (names.length === 0) { el.innerHTML = emptyStateHtml(emptyTitle, emptyBody); return; }
+  const grid = document.createElement('div');
+  grid.className = 'tile-grid';
+  names.forEach(name => {
+    const list = map[name];
+    const tile = document.createElement('button');
+    tile.className = 'tile';
+    tile.onclick = () => openCategoryDetail(type, name, artClass);
+    tile.innerHTML = `
+      <div class="tile-art ${artClass}">${groupIcon(artClass)}</div>
+      <div class="tile-name">${escapeHtml(name)}</div>
+      <div class="tile-meta">${list.length} song${list.length === 1 ? '' : 's'}</div>
+    `;
+    grid.appendChild(tile);
+  });
+  el.appendChild(grid);
+}
+
+function openCategoryDetail(type, name, artClass) {
+  const el = document.getElementById('soundScroll');
+  el.innerHTML = '';
+  const back = document.createElement('button');
+  back.className = 'btn ghost back-btn';
+  back.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back`;
+  back.onclick = () => renderSound();
+  el.appendChild(back);
+
+  const list = tracks.filter(t => trackKeysFor(t, type).includes(name));
+  const heading = document.createElement('div');
+  heading.style.cssText = 'display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; gap: 12px; flex-wrap: wrap;';
+  heading.innerHTML = `<h2 style="font-family:var(--font-display); margin:0; font-size:22px;">${escapeHtml(name)}</h2>`;
+  const playAllBtn = document.createElement('button');
+  playAllBtn.className = 'btn teal';
+  playAllBtn.textContent = 'Play all';
+  playAllBtn.onclick = () => playQueue(list, 0);
+  heading.appendChild(playAllBtn);
+  el.appendChild(heading);
+  list.forEach((t, i) => el.appendChild(trackRow(t, i, list)));
+}
+
+function renderPlaylists(el) {
+  if (playlists.length === 0) { el.innerHTML = emptyStateHtml('No playlists yet.', 'Tap "New playlist" up top to start one.'); return; }
+  const grid = document.createElement('div');
+  grid.className = 'tile-grid';
+  playlists.forEach(pl => {
+    const plTracks = pl.trackIds.map(id => tracks.find(t => t.id === id)).filter(Boolean);
+    const tile = document.createElement('button');
+    tile.className = 'tile';
+    tile.onclick = () => openPlaylistDetail(pl.id);
+    tile.innerHTML = `
+      <div class="tile-art playlist-art">${groupIcon('playlist-art')}</div>
+      <div class="tile-name">${escapeHtml(pl.name)}</div>
+      <div class="tile-meta">${plTracks.length} song${plTracks.length === 1 ? '' : 's'}</div>
+    `;
+    grid.appendChild(tile);
+  });
+  el.appendChild(grid);
+}
+
+function openPlaylistDetail(id) {
+  const pl = playlists.find(p => p.id === id);
+  if (!pl) return;
+  const el = document.getElementById('soundScroll');
+  el.innerHTML = '';
+  const back = document.createElement('button');
+  back.className = 'btn ghost back-btn';
+  back.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> All playlists`;
+  back.onclick = () => renderSound();
+  el.appendChild(back);
+
+  const plTracks = pl.trackIds.map(tid => tracks.find(t => t.id === tid)).filter(Boolean);
+  const heading = document.createElement('div');
+  heading.style.cssText = 'display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; gap: 12px; flex-wrap: wrap;';
+  heading.innerHTML = `<h2 style="font-family:var(--font-display); margin:0; font-size:22px;">${escapeHtml(pl.name)}</h2>`;
+  const playAllBtn = document.createElement('button');
+  playAllBtn.className = 'btn teal';
+  playAllBtn.textContent = 'Play all';
+  playAllBtn.disabled = plTracks.length === 0;
+  playAllBtn.onclick = () => { if (plTracks.length) playQueue(plTracks, 0); };
+  heading.appendChild(playAllBtn);
+  el.appendChild(heading);
+
+  if (plTracks.length === 0) {
+    el.insertAdjacentHTML('beforeend', emptyStateHtml('No songs in this playlist yet.', 'Go to "All songs", tap the + on a track, and add it here.'));
+  }
+  plTracks.forEach((t, i) => {
+    const row = trackRow(t, i, plTracks);
+    const removeBtn = document.createElement('button');
+    removeBtn.title = 'Remove from playlist';
+    removeBtn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>`;
+    removeBtn.onclick = (e) => { e.stopPropagation(); pl.trackIds = pl.trackIds.filter(x => x !== t.id); dbPut('playlists', pl); openPlaylistDetail(id); };
+    row.querySelector('.track-actions').appendChild(removeBtn);
+    el.appendChild(row);
+  });
+}
+
+function renderFlatList(el, list, emptyTitle, emptyBody) {
+  if (list.length === 0) { el.innerHTML = emptyStateHtml(emptyTitle, emptyBody); return; }
+  list.forEach((t, i) => el.appendChild(trackRow(t, i, list)));
+}
+
+function trackRow(t, index, queueRef) {
+  const row = document.createElement('div');
+  row.className = 'track-row' + (currentQueue[currentIndex] === t ? ' playing' : '');
+  row.onclick = () => playQueue(queueRef, index);
+  const subBits = [t.artist, t.album, t.genre].filter(Boolean).filter(v => v !== 'Unsorted');
+  row.innerHTML = `
+    <div class="track-num">${index + 1}</div>
+    <div class="track-art"></div>
+    <div style="min-width:0; flex:1;">
+      <div class="track-title">${escapeHtml(t.title)}</div>
+      <div class="track-sub">${subBits.join(' · ') || 'Not sorted yet'}${t.tags && t.tags.length ? ' · ' + t.tags.map(escapeHtml).join(', ') : ''}</div>
+    </div>
+    <div class="track-actions">
+      <button title="Favorite" class="fav-btn">${t.favorite ? starIcon(true) : starIcon(false)}</button>
+      <button title="Edit info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button>
+      <button title="Add to playlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+    </div>
+  `;
+  const [favBtn, editBtn, addBtn] = row.querySelectorAll('.track-actions button');
+  favBtn.onclick = (e) => { e.stopPropagation(); t.favorite = !t.favorite; dbPut('tracks', t); favBtn.innerHTML = starIcon(t.favorite); if (soundSeg === 'favorites') renderSound(); };
+  editBtn.onclick = (e) => { e.stopPropagation(); openEditTrackModal(t.id); };
+  addBtn.onclick = (e) => { e.stopPropagation(); addToPlaylistPrompt(t.id); };
+  return row;
+}
+function starIcon(filled) {
+  return filled
+    ? `<svg viewBox="0 0 24 24" fill="var(--yellow)" stroke="var(--yellow)" stroke-width="1.5"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8l-6.2 3.3 1.2-6.9-5-4.9 6.9-1Z"/></svg>`
+    : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8l-6.2 3.3 1.2-6.9-5-4.9 6.9-1Z"/></svg>`;
+}
+
+function openEditTrackModal(trackId) {
+  const t = tracks.find(x => x.id === trackId);
+  if (!t) return;
+  const albumOptions = [...new Set(tracks.map(x => x.album).filter(Boolean))];
+  const artistOptions = [...new Set(tracks.map(x => x.artist).filter(Boolean))];
+  const genreOptions = [...new Set(tracks.map(x => x.genre).filter(Boolean))];
+  const tagOptions = [...new Set(tracks.flatMap(x => x.tags || []))];
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>Edit song</h3>
+    <div class="field"><label>Title</label><input id="trackTitleInput" value="${escapeHtml(t.title)}"></div>
+    <div class="field"><label>Artist</label><input id="trackArtistInput" list="artistOptions" value="${escapeHtml(t.artist || '')}">
+      <datalist id="artistOptions">${artistOptions.map(a => `<option value="${escapeHtml(a)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Album</label><input id="trackAlbumInput" list="albumOptions" value="${escapeHtml(t.album || '')}" placeholder="e.g. Recovery">
+      <datalist id="albumOptions">${albumOptions.map(a => `<option value="${escapeHtml(a)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Genre</label><input id="trackGenreInput" list="genreOptions" value="${escapeHtml(t.genre || '')}" placeholder="e.g. Rap">
+      <datalist id="genreOptions">${genreOptions.map(g => `<option value="${escapeHtml(g)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Tags (comma separated, as many as you want)</label><input id="trackTagsInput" list="tagOptions" value="${escapeHtml((t.tags||[]).join(', '))}" placeholder="e.g. hype, road trip, throwback">
+      <datalist id="tagOptions">${tagOptions.map(g => `<option value="${escapeHtml(g)}">`).join('')}</datalist>
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn teal" onclick="saveTrackEdit('${trackId}')">Save</button>
+    </div>
+  `;
+  document.getElementById('modalBackdrop').classList.add('active');
+  setTimeout(() => document.getElementById('trackTitleInput').focus(), 50);
+}
+async function saveTrackEdit(trackId) {
+  const t = tracks.find(x => x.id === trackId);
+  if (!t) return;
+  t.title = document.getElementById('trackTitleInput').value.trim() || t.title;
+  t.artist = document.getElementById('trackArtistInput').value.trim();
+  t.album = document.getElementById('trackAlbumInput').value.trim() || 'Unsorted';
+  t.genre = document.getElementById('trackGenreInput').value.trim() || 'Unsorted';
+  t.tags = document.getElementById('trackTagsInput').value.split(',').map(s => s.trim()).filter(Boolean);
+  closeModal();
+  await dbPut('tracks', t);
+  renderSound();
+}
+
+/* ============================= COLLECTION: Lego HQ ============================= */
+function setLegoSeg(seg) {
+  legoSeg = seg;
+  document.querySelectorAll('#legoSegControl button').forEach(b => b.classList.toggle('active', b.dataset.legoSeg === seg));
+  renderCollection();
+  setMeta('lastLegoSeg', seg);
+}
+
+function makeSetTile(s) {
+  const tile = document.createElement('div');
+  tile.className = 'set-tile' + (s.status === 'wishlist' ? ' is-wishlist' : '');
+  tile.onclick = () => openEditSetModal(s.id);
+  const metaBits = [s.setNum ? '#' + s.setNum : null, s.pieces ? Number(s.pieces).toLocaleString() + ' pcs' : null, s.price ? '$' + Number(s.price).toFixed(0) : null, s.theme || null].filter(Boolean).join(' · ');
+  tile.innerHTML = `
+    <div class="set-art">${s.cover ? `<img src="${s.cover}">` : `<div class="stud-dot"></div><div class="stud-dot"></div><div class="stud-dot"></div>`}</div>
+    <div class="set-name">${escapeHtml(s.name)}</div>
+    <div class="set-meta">${metaBits}</div>
+    <span class="set-status-pill ${s.status}">${s.status === 'wishlist' ? 'Wishlist' : s.status === 'building' ? 'Building' : 'Built'}</span>
+  `;
+  if (s.status === 'wishlist') {
+    const b = document.createElement('button');
+    b.className = 'set-quick-btn gotit';
+    b.textContent = 'Got it!';
+    b.onclick = (e) => { e.stopPropagation(); s.status = 'building'; dbPut('legoSets', s); renderCollection(); };
+    tile.appendChild(b);
+  } else if (s.status === 'building') {
+    const b = document.createElement('button');
+    b.className = 'set-quick-btn built';
+    b.textContent = 'Mark built';
+    b.onclick = (e) => { e.stopPropagation(); s.status = 'built'; dbPut('legoSets', s); renderCollection(); };
+    tile.appendChild(b);
+  }
+  return tile;
+}
+
+function renderCollection() {
+  const built = legoSets.filter(s => s.status === 'built');
+  const building = legoSets.filter(s => s.status === 'building');
+  const wish = legoSets.filter(s => s.status === 'wishlist');
+  document.getElementById('legoBuiltCount').textContent = built.length;
+  document.getElementById('legoPieceCount').textContent = built.concat(building).reduce((sum, s) => sum + (Number(s.pieces) || 0), 0).toLocaleString();
+  document.getElementById('legoWishCount').textContent = wish.length;
+  document.getElementById('legoWishValue').textContent = '$' + wish.reduce((sum, s) => sum + (Number(s.price) || 0), 0).toFixed(0);
+
+  const spot = document.getElementById('legoSpotlight');
+  if (building.length) {
+    const s = building[0];
+    spot.classList.add('show');
+    spot.innerHTML = `
+      ${s.cover ? `<img class="spotlight-art" src="${s.cover}">` : `<div class="spotlight-art"></div>`}
+      <div>
+        <div class="spotlight-eyebrow">Currently building</div>
+        <div class="spotlight-title">${escapeHtml(s.name)}</div>
+        <div class="spotlight-sub">${s.pieces ? Number(s.pieces).toLocaleString() + ' pieces' : 'Piece count not set'}</div>
+      </div>`;
+  } else {
+    spot.classList.remove('show');
+    spot.innerHTML = '';
+  }
+
+  const grid = document.getElementById('legoGrid');
+  const label = document.getElementById('legoSectionLabel');
+  const existingEmpty = grid.parentElement.querySelector('.empty-state');
+  if (existingEmpty) existingEmpty.remove();
+  grid.innerHTML = '';
+
+  if (legoSeg === 'theme') {
+    label.textContent = 'BY THEME';
+    const map = {};
+    legoSets.forEach(s => { const key = (s.theme || 'No theme').trim() || 'No theme'; (map[key] ||= []).push(s); });
+    const names = Object.keys(map).sort((a,b) => a === 'No theme' ? 1 : b === 'No theme' ? -1 : a.localeCompare(b));
+    if (names.length === 0) { grid.insertAdjacentHTML('beforebegin', emptyStateHtml('No sets yet.', 'Tap "Add set" to log something you\'re building, have built, or want next.')); return; }
+    names.forEach(name => {
+      const group = document.createElement('div');
+      group.style.cssText = 'grid-column: 1 / -1; display:flex; flex-direction:column; gap:12px; margin-bottom: 6px;';
+      const sub = document.createElement('div');
+      sub.style.cssText = 'font-family: var(--font-display); font-weight:700; font-size:15px; color: var(--yellow);';
+      sub.textContent = name;
+      const subGrid = document.createElement('div');
+      subGrid.className = 'tile-grid';
+      map[name].forEach(s => subGrid.appendChild(makeSetTile(s)));
+      group.appendChild(sub);
+      group.appendChild(subGrid);
+      grid.appendChild(group);
+    });
+    return;
+  }
+
+  label.textContent = legoSeg === 'all' ? 'THE COLLECTION' : legoSeg.toUpperCase();
+  const list = legoSeg === 'all' ? legoSets : legoSets.filter(s => s.status === legoSeg);
+  if (list.length === 0) {
+    grid.insertAdjacentHTML('beforebegin', emptyStateHtml('Nothing here yet.', legoSeg === 'all' ? 'Tap "Add set" to log something you\'re building, have built, or want next.' : 'Sets you mark this way will show up here.'));
+    return;
+  }
+  list.forEach(s => grid.appendChild(makeSetTile(s)));
+}
+
+function openAddSetModal() {
+  pendingSetCoverDataUrl = null;
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>Add set</h3>
+    <div class="field"><label>Pick from popular sets</label>${popularSetSelectHtml()}</div>
+    <div class="modal-note" style="margin: -6px 0 14px;">Piece counts and prices here are approximate — tweak anything below after picking.</div>
+    <div class="field"><label>Set name</label><input id="setNameInput" placeholder="e.g. Millennium Falcon"></div>
+    <div class="field"><label>Set number (optional)</label><input id="setNumInput" placeholder="e.g. 75192"></div>
+    <div class="field"><label>Pieces (optional)</label><input id="setPiecesInput" placeholder="e.g. 1274"></div>
+    <div class="field"><label>Price $ (optional)</label><input id="setPriceInput" placeholder="e.g. 170"></div>
+    <div class="field"><label>Theme (optional)</label><input id="setThemeInput" list="themeOptions" placeholder="e.g. Star Wars, Technic, Icons">
+      <datalist id="themeOptions">${[...new Set(legoSets.map(x => x.theme).filter(Boolean))].map(t => `<option value="${escapeHtml(t)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Status</label>
+      <select id="setStatusInput">
+        <option value="wishlist">Wishlist</option>
+        <option value="building">Currently building</option>
+        <option value="built">Built</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Photo (optional)</label>
+      <div class="cover-picker">
+        <div class="cover-preview" id="setCoverPreview"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-5-5L5 21"></path></svg></div>
+        <button class="btn ghost" type="button" onclick="document.getElementById('setCoverInput').click()">Choose photo</button>
+        <input type="file" id="setCoverInput" accept="image/*">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn" style="background: var(--yellow); color:#241c00;" onclick="saveNewSet()">Save</button>
+    </div>
+  `;
+  document.getElementById('setCoverInput').addEventListener('change', async (ev) => {
+    const f = ev.target.files[0];
+    if (!f) return;
+    pendingSetCoverDataUrl = await readAsDataURL(f);
+    document.getElementById('setCoverPreview').innerHTML = `<img src="${pendingSetCoverDataUrl}">`;
+  });
+  document.getElementById('modalBackdrop').classList.add('active');
+  setTimeout(() => document.getElementById('setNameInput').focus(), 50);
+}
+async function saveNewSet() {
+  const name = document.getElementById('setNameInput').value.trim();
+  if (!name) return;
+  const set = {
+    id: uid(),
+    name,
+    setNum: document.getElementById('setNumInput').value.trim(),
+    pieces: Number(document.getElementById('setPiecesInput').value) || null,
+    price: Number(document.getElementById('setPriceInput').value) || null,
+    theme: document.getElementById('setThemeInput').value.trim(),
+    status: document.getElementById('setStatusInput').value,
+    cover: pendingSetCoverDataUrl || null
+  };
+  legoSets.push(set);
+  closeModal();
+  renderCollection();
+  await dbPut('legoSets', set);
+}
+
+function openEditSetModal(id) {
+  const s = legoSets.find(x => x.id === id);
+  if (!s) return;
+  pendingSetCoverDataUrl = s.cover || null;
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>Edit set</h3>
+    <div class="field"><label>Set name</label><input id="setNameInput" value="${escapeHtml(s.name)}"></div>
+    <div class="field"><label>Set number (optional)</label><input id="setNumInput" value="${escapeHtml(s.setNum || '')}"></div>
+    <div class="field"><label>Pieces (optional)</label><input id="setPiecesInput" value="${s.pieces || ''}"></div>
+    <div class="field"><label>Price $ (optional)</label><input id="setPriceInput" value="${s.price || ''}"></div>
+    <div class="field"><label>Theme (optional)</label><input id="setThemeInput" list="themeOptions" value="${escapeHtml(s.theme || '')}" placeholder="e.g. Star Wars, Technic, Icons">
+      <datalist id="themeOptions">${[...new Set(legoSets.map(x => x.theme).filter(Boolean))].map(t => `<option value="${escapeHtml(t)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Status</label>
+      <select id="setStatusInput">
+        <option value="wishlist" ${s.status === 'wishlist' ? 'selected' : ''}>Wishlist</option>
+        <option value="building" ${s.status === 'building' ? 'selected' : ''}>Currently building</option>
+        <option value="built" ${s.status === 'built' ? 'selected' : ''}>Built</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Photo</label>
+      <div class="cover-picker">
+        <div class="cover-preview" id="setCoverPreview">${s.cover ? `<img src="${s.cover}">` : ''}</div>
+        <button class="btn ghost" type="button" onclick="document.getElementById('setCoverInput').click()">Choose photo</button>
+        <input type="file" id="setCoverInput" accept="image/*">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn ghost" onclick="deleteSet('${s.id}')" style="margin-right:auto; color: var(--brick);">Remove</button>
+      <button class="btn ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn" style="background: var(--yellow); color:#241c00;" onclick="saveSetEdit('${s.id}')">Save</button>
+    </div>
+  `;
+  document.getElementById('setCoverInput').addEventListener('change', async (ev) => {
+    const f = ev.target.files[0];
+    if (!f) return;
+    pendingSetCoverDataUrl = await readAsDataURL(f);
+    document.getElementById('setCoverPreview').innerHTML = `<img src="${pendingSetCoverDataUrl}">`;
+  });
+  document.getElementById('modalBackdrop').classList.add('active');
+}
+async function saveSetEdit(id) {
+  const s = legoSets.find(x => x.id === id);
+  if (!s) return;
+  s.name = document.getElementById('setNameInput').value.trim() || s.name;
+  s.setNum = document.getElementById('setNumInput').value.trim();
+  s.pieces = Number(document.getElementById('setPiecesInput').value) || null;
+  s.price = Number(document.getElementById('setPriceInput').value) || null;
+  s.theme = document.getElementById('setThemeInput').value.trim();
+  s.status = document.getElementById('setStatusInput').value;
+  s.cover = pendingSetCoverDataUrl || null;
+  closeModal();
+  renderCollection();
+  await dbPut('legoSets', s);
+}
+async function deleteSet(id) {
+  if (!confirm('Remove this set from your collection?')) return;
+  legoSets = legoSets.filter(x => x.id !== id);
+  closeModal();
+  renderCollection();
+  await dbDelete('legoSets', id);
+}
+
+/* ============================= BACKUP & RESTORE ============================= */
+// A full backup bundles every manual, song, playlist, and Lego set — including the
+// actual PDF/audio files and photos, not just metadata — into one JSON file you save
+// to Files. Re-importing it (here or on a fresh install) restores everything. If a file
+// named "backup.json" sits next to this page's own file on your server, it's loaded
+// automatically on startup and merged in — so if you export your library and commit
+// that file alongside index.html, any new install (or a future update) will auto-fill
+// itself back in without you doing anything else.
+function blobToDataURL(blob) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = reject;
+    r.readAsDataURL(blob);
+  });
+}
+async function dataUrlToBlob(dataUrl) {
+  const res = await fetch(dataUrl);
+  return await res.blob();
+}
+function stripBlob(obj) {
+  const copy = { ...obj };
+  delete copy.blob;
+  return copy;
+}
+
+function openBackupModal() {
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>Backup &amp; restore</h3>
+    <div class="modal-note" style="line-height:1.6;">
+      Export bundles everything — manuals, songs, playlists, Lego sets, photos and all — into one file you save to Files. Big libraries (lots of manuals especially) can take a minute and make a large file; that's normal.
+    </div>
+    <div class="modal-actions" style="justify-content:flex-start; flex-wrap:wrap;">
+      <button class="btn teal" onclick="exportBackup()">Export backup</button>
+      <button class="btn ghost" onclick="document.getElementById('backupImportInput').click()">Import backup</button>
+    </div>
+    <div class="modal-note" style="line-height:1.6; margin-top:16px;">
+      Importing merges into what's already here — anything with a matching ID gets overwritten with the version from the file, everything else stays untouched.
+    </div>
+    <div class="modal-note" style="line-height:1.6; margin-top:10px;">
+      Want new installs to auto-fill themselves? Export, rename the file to exactly <b>backup.json</b>, and commit it into your GitHub repo next to index.html. It'll be checked and merged in (without overwriting anything you've already changed locally) every time the app starts fresh.
+    </div>
+    <div class="modal-actions"><button class="btn ghost" onclick="closeModal()">Close</button></div>
+  `;
+  document.getElementById('modalBackdrop').classList.add('active');
+}
+
+async function exportBackup() {
+  const body = document.getElementById('modalBody');
+  const total = manuals.length + tracks.length || 1;
+  let done = 0;
+  const setProgress = () => {
+    done++;
+    const note = document.getElementById('exportProgressNote');
+    if (note) note.textContent = `Packing files… ${done} / ${total}`;
+  };
+  body.innerHTML = `<h3>Exporting…</h3><div class="modal-note" id="exportProgressNote">Packing files… 0 / ${total}</div>`;
+
+  const manualsOut = [];
+  for (const m of manuals) {
+    const blobDataUrl = await blobToDataURL(m.blob);
+    manualsOut.push({ ...stripBlob(m), blobDataUrl });
+    setProgress();
+  }
+  const tracksOut = [];
+  for (const t of tracks) {
+    const blobDataUrl = await blobToDataURL(t.blob);
+    tracksOut.push({ ...stripBlob(t), blobDataUrl });
+    setProgress();
+  }
+
+  const payload = {
+    version: 1,
+    app: 'brick-and-sound',
+    exportedAt: new Date().toISOString(),
+    manuals: manualsOut,
+    tracks: tracksOut,
+    playlists,
+    legoSets
+  };
+  const json = JSON.stringify(payload);
+  const fileBlob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(fileBlob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `brick-and-sound-backup-${new Date().toISOString().slice(0, 10)}.json`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 15000);
+
+  body.innerHTML = `
+    <h3>Backup ready</h3>
+    <div class="modal-note" style="line-height:1.6;">Your download should be starting (or offering a Save sheet) now — ${manualsOut.length} manual${manualsOut.length === 1 ? '' : 's'} and ${tracksOut.length} song${tracksOut.length === 1 ? '' : 's'} packed in, plus every playlist and Lego set.</div>
+    <div class="modal-actions"><button class="btn teal" onclick="closeModal()">Done</button></div>
+  `;
+}
+
+document.getElementById('backupImportInput').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  e.target.value = '';
+  if (file) await importBackupFile(file);
+});
+
+async function importBackupFile(file) {
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `<h3>Restoring…</h3><div class="modal-note">Reading backup file…</div>`;
+  document.getElementById('modalBackdrop').classList.add('active');
+  let payload;
+  try {
+    const text = await file.text();
+    payload = JSON.parse(text);
+  } catch (err) {
+    console.error('Backup file could not be read: ' + err.message);
+    body.innerHTML = `<h3>Couldn't read that file</h3><div class="modal-note">It doesn't look like a valid backup. Make sure you picked a file this app exported.</div><div class="modal-actions"><button class="btn ghost" onclick="closeModal()">Close</button></div>`;
+    return;
+  }
+  const result = await mergeBackupPayload(payload, { overwrite: true, progressEl: 'modalBody' });
+  renderBuild(); renderSound(); renderCollection();
+  showImportSummary({
+    addedSongs: result.addedTracks, updatedSongs: result.updatedTracks,
+    addedManuals: result.addedManuals, updatedManuals: result.updatedManuals,
+    addedPlaylists: result.addedPlaylists, skipped: 0
+  });
+}
+
+async function mergeBackupPayload(payload, opts) {
+  const overwrite = !!(opts && opts.overwrite);
+  const result = { addedManuals: 0, updatedManuals: 0, addedTracks: 0, updatedTracks: 0, addedPlaylists: 0, updatedPlaylists: 0, addedSets: 0, updatedSets: 0 };
+
+  for (const m of (payload.manuals || [])) {
+    const existingIdx = manuals.findIndex(x => x.id === m.id);
+    if (existingIdx !== -1 && !overwrite) continue;
+    try {
+      const blob = await dataUrlToBlob(m.blobDataUrl);
+      const rec = { ...m, blob };
+      delete rec.blobDataUrl;
+      if (existingIdx !== -1) { manuals[existingIdx] = rec; result.updatedManuals++; }
+      else { manuals.push(rec); result.addedManuals++; }
+      await dbPut('manuals', rec);
+    } catch (err) { console.warn('Skipped a manual in backup: ' + err.message); }
+  }
+
+  for (const t of (payload.tracks || [])) {
+    const existingIdx = tracks.findIndex(x => x.id === t.id);
+    if (existingIdx !== -1 && !overwrite) continue;
+    try {
+      const blob = await dataUrlToBlob(t.blobDataUrl);
+      const rec = { ...t, blob };
+      delete rec.blobDataUrl;
+      if (existingIdx !== -1) { tracks[existingIdx] = rec; result.updatedTracks++; }
+      else { tracks.push(rec); result.addedTracks++; }
+      await dbPut('tracks', rec);
+    } catch (err) { console.warn('Skipped a song in backup: ' + err.message); }
+  }
+
+  for (const p of (payload.playlists || [])) {
+    const existingIdx = playlists.findIndex(x => x.id === p.id);
+    if (existingIdx !== -1 && !overwrite) continue;
+    if (existingIdx !== -1) { playlists[existingIdx] = p; result.updatedPlaylists++; }
+    else { playlists.push(p); result.addedPlaylists++; }
+    await dbPut('playlists', p);
+  }
+
+  for (const s of (payload.legoSets || [])) {
+    const existingIdx = legoSets.findIndex(x => x.id === s.id);
+    if (existingIdx !== -1 && !overwrite) continue;
+    if (existingIdx !== -1) { legoSets[existingIdx] = s; result.updatedSets++; }
+    else { legoSets.push(s); result.addedSets++; }
+    await dbPut('legoSets', s);
+  }
+
+  return result;
+}
+
+async function tryAutoMergeBackupFile() {
+  try {
+    const res = await fetch('./backup.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    const payload = await res.json();
+    const result = await mergeBackupPayload(payload, { overwrite: false });
+    const totalAdded = result.addedManuals + result.addedTracks + result.addedPlaylists + result.addedSets;
+    if (totalAdded > 0) {
+      console.log(`Auto-loaded ${totalAdded} item(s) from backup.json`);
+      renderBuild(); renderSound(); renderCollection();
+    }
+  } catch (err) {
+    // No backup.json next to this page, or it couldn't be fetched — perfectly normal, stay silent.
+  }
+}
+
+/* ============================= BATCH IMPORT (multi-file picker) ============================= */
+// Safari on iPhone/iPad has no way to pick an entire folder (no directory picker, and
+// no filesystem write access either) — only individual files, picked from one Files-app
+// folder view at a time. So instead of pretending we can read a whole folder tree, this
+// lets you multi-select a batch of files (everything inside one folder, like
+// "genres/Rap") and tag the whole batch in one go instead of editing each song by hand.
+const AUDIO_EXT = /\.(mp3|m4a|wav|aac|ogg|flac|caf)$/i;
+let pendingBatchFiles = [];
+let pendingBatchPdfStats = null;
+
+document.getElementById('folderImportInput').addEventListener('change', async (e) => {
+  const files = Array.from(e.target.files);
+  e.target.value = '';
+  if (files.length) await handleBatchImport(files);
+});
+
+async function handleBatchImport(files) {
+  const audioFiles = [];
+  const pdfFiles = [];
+  let skipped = 0;
+  for (const file of files) {
+    if (/\.pdf$/i.test(file.name)) pdfFiles.push(file);
+    else if (AUDIO_EXT.test(file.name)) audioFiles.push(file);
+    else skipped++;
+  }
+
+  let addedManuals = 0, updatedManuals = 0;
+  for (const file of pdfFiles) {
+    const key = file.name + ':' + file.size;
+    let m = manuals.find(x => x._importKey === key);
+    if (!m) {
+      m = { id: uid(), name: file.name.replace(/\.pdf$/i, ''), setNumber: '', pageSize: 'letter', blob: file, cover: null, _importKey: key };
+      manuals.push(m);
+      addedManuals++;
+    } else {
+      m.blob = file;
+      updatedManuals++;
+    }
+    await dbPut('manuals', m);
+  }
+  if (pdfFiles.length) renderBuild();
+
+  if (audioFiles.length) {
+    pendingBatchFiles = audioFiles;
+    pendingBatchPdfStats = { addedManuals, updatedManuals, skipped };
+    openBatchTagModal(audioFiles.length);
+  } else {
+    showImportSummary({ addedSongs: 0, updatedSongs: 0, addedManuals, updatedManuals, addedPlaylists: 0, skipped });
+  }
+}
+
+function openBatchTagModal(n) {
+  const albumOptions = [...new Set(tracks.map(x => x.album).filter(Boolean))];
+  const artistOptions = [...new Set(tracks.map(x => x.artist).filter(Boolean))];
+  const genreOptions = [...new Set(tracks.map(x => x.genre).filter(Boolean))];
+  const tagOptions = [...new Set(tracks.flatMap(x => x.tags || []))];
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>Tag ${n} song${n === 1 ? '' : 's'}</h3>
+    <div class="modal-note" style="margin-bottom:14px;">Leave anything blank to skip it. This applies to all ${n} at once — fine-tune individual songs later from the pencil icon.</div>
+    <div class="field"><label>Artist</label><input id="batchArtistInput" list="batchArtistOptions" placeholder="e.g. Eminem">
+      <datalist id="batchArtistOptions">${artistOptions.map(a => `<option value="${escapeHtml(a)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Album</label><input id="batchAlbumInput" list="batchAlbumOptions" placeholder="e.g. Recovery">
+      <datalist id="batchAlbumOptions">${albumOptions.map(a => `<option value="${escapeHtml(a)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Genre</label><input id="batchGenreInput" list="batchGenreOptions" placeholder="e.g. Rap">
+      <datalist id="batchGenreOptions">${genreOptions.map(g => `<option value="${escapeHtml(g)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Tags (comma separated)</label><input id="batchTagsInput" list="batchTagOptions" placeholder="e.g. hype, road trip">
+      <datalist id="batchTagOptions">${tagOptions.map(g => `<option value="${escapeHtml(g)}">`).join('')}</datalist>
+    </div>
+    <div class="field"><label>Add to playlist (optional)</label>
+      <select id="batchPlaylistInput" onchange="document.getElementById('batchNewPlaylistField').style.display = this.value === '__new__' ? 'block' : 'none';">
+        <option value="">— none —</option>
+        ${playlists.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('')}
+        <option value="__new__">+ New playlist…</option>
+      </select>
+    </div>
+    <div class="field" id="batchNewPlaylistField" style="display:none;"><label>New playlist name</label><input id="batchNewPlaylistName" placeholder="e.g. Road Trip"></div>
+    <div class="field"><label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-weight:600; color:var(--text);"><input type="checkbox" id="batchFavoriteInput" style="width:auto;"> Mark all as favorites</label></div>
+    <div class="modal-actions">
+      <button class="btn ghost" onclick="cancelBatchImport()">Cancel</button>
+      <button class="btn teal" onclick="confirmBatchTag()">Add ${n} song${n === 1 ? '' : 's'}</button>
+    </div>
+  `;
+  document.getElementById('modalBackdrop').classList.add('active');
+}
+
+function cancelBatchImport() {
+  const stats = pendingBatchPdfStats || { addedManuals: 0, updatedManuals: 0, skipped: 0 };
+  pendingBatchFiles = [];
+  pendingBatchPdfStats = null;
+  closeModal();
+  if (stats.addedManuals || stats.updatedManuals) {
+    showImportSummary({ addedSongs: 0, updatedSongs: 0, addedManuals: stats.addedManuals, updatedManuals: stats.updatedManuals, addedPlaylists: 0, skipped: stats.skipped });
+  }
+}
+
+async function confirmBatchTag() {
+  const artist = document.getElementById('batchArtistInput').value.trim();
+  const album = document.getElementById('batchAlbumInput').value.trim();
+  const genre = document.getElementById('batchGenreInput').value.trim();
+  const tagList = document.getElementById('batchTagsInput').value.split(',').map(s => s.trim()).filter(Boolean);
+  const favorite = document.getElementById('batchFavoriteInput').checked;
+  const plSelect = document.getElementById('batchPlaylistInput').value;
+  const stats = pendingBatchPdfStats || { addedManuals: 0, updatedManuals: 0, skipped: 0 };
+
+  let targetPlaylist = null;
+  let addedPlaylists = 0;
+  if (plSelect === '__new__') {
+    const newName = document.getElementById('batchNewPlaylistName').value.trim();
+    if (newName) {
+      targetPlaylist = { id: uid(), name: newName, trackIds: [] };
+      playlists.push(targetPlaylist);
+      addedPlaylists++;
+    }
+  } else if (plSelect) {
+    targetPlaylist = playlists.find(p => p.id === plSelect) || null;
+  }
+
+  let addedSongs = 0, updatedSongs = 0;
+  for (const file of pendingBatchFiles) {
+    const key = file.name + ':' + file.size;
+    let t = tracks.find(x => x._importKey === key);
+    if (!t) {
+      t = {
+        id: uid(),
+        title: file.name.replace(AUDIO_EXT, ''),
+        artist: artist || '',
+        album: album || 'Unsorted',
+        genre: genre || 'Unsorted',
+        tags: [...tagList],
+        favorite,
+        blob: file,
+        _importKey: key
+      };
+      tracks.push(t);
+      addedSongs++;
+    } else {
+      t.blob = file;
+      if (artist) t.artist = artist;
+      if (album) t.album = album;
+      if (genre) t.genre = genre;
+      tagList.forEach(tag => { if (!t.tags.includes(tag)) t.tags.push(tag); });
+      if (favorite) t.favorite = true;
+      updatedSongs++;
+    }
+    await dbPut('tracks', t);
+    if (targetPlaylist && !targetPlaylist.trackIds.includes(t.id)) targetPlaylist.trackIds.push(t.id);
+  }
+  if (targetPlaylist) await dbPut('playlists', targetPlaylist);
+
+  pendingBatchFiles = [];
+  pendingBatchPdfStats = null;
+  closeModal();
+  renderSound();
+  renderBuild();
+  showImportSummary({
+    addedSongs, updatedSongs,
+    addedManuals: stats.addedManuals,
+    updatedManuals: stats.updatedManuals,
+    addedPlaylists,
+    skipped: stats.skipped
+  });
+}
+
+function showImportSummary({ addedSongs, updatedSongs, addedManuals, updatedManuals, addedPlaylists, skipped }) {
+  const lines = [];
+  if (addedSongs) lines.push(`${addedSongs} new song${addedSongs === 1 ? '' : 's'} added`);
+  if (updatedSongs) lines.push(`${updatedSongs} song${updatedSongs === 1 ? '' : 's'} re-sorted`);
+  if (addedManuals) lines.push(`${addedManuals} new manual${addedManuals === 1 ? '' : 's'} added`);
+  if (updatedManuals) lines.push(`${updatedManuals} manual${updatedManuals === 1 ? '' : 's'} updated`);
+  if (addedPlaylists) lines.push(`${addedPlaylists} new playlist${addedPlaylists === 1 ? '' : 's'} created`);
+  if (!lines.length) lines.push('Nothing added.');
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>Import complete</h3>
+    <div class="modal-note" style="line-height:1.7;">${lines.map(escapeHtml).join('<br>')}${skipped ? `<br>${skipped} file${skipped === 1 ? '' : 's'} skipped (not a song or PDF)` : ''}</div>
+    <div class="modal-actions"><button class="btn teal" onclick="closeModal()">Done</button></div>
+  `;
+  document.getElementById('modalBackdrop').classList.add('active');
+}
+
+function openFolderGuideModal() {
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>How importing actually works</h3>
+    <div class="modal-note" style="line-height:1.6;">
+      Being straight with you: Safari on iPhone/iPad has no way to select a whole folder at once — only individual files, no exceptions. So "Import from Files" lets you <b>multi-select a batch of files</b> (say, everything inside one folder like <i>genres/Rap</i>), then tag that whole batch in one go instead of editing each song one at a time.
+    </div>
+    <ol style="margin:0 0 14px; padding-left:20px; font-size:13.5px; line-height:1.9; color: var(--text);">
+      <li>Organize files in Files app however you like — a folder per genre, per album, per playlist, whatever helps</li>
+      <li>Tap "Import from Files," navigate into one of those folders</li>
+      <li>Tap "Select" top-right, then tap each file (or "Select All")</li>
+      <li>Tap "Open" — you'll get one screen to label the whole batch: artist, album, genre, tags, playlist, favorite</li>
+      <li>Repeat per folder. PDFs get added automatically, no tagging screen needed</li>
+    </ol>
+    <div class="modal-note" style="line-height:1.6;">
+      It's a few extra taps per batch instead of one magic click — Safari just doesn't give web apps a way to do the magic-click version. Leave any field blank in the tagging screen to skip it for that batch.
+    </div>
+    <div class="modal-actions"><button class="btn teal" onclick="closeModal()">Got it</button></div>
+  `;
+  document.getElementById('modalBackdrop').classList.add('active');
+}
+
+/* ============================= Playback ============================= */
+const audioEl = document.getElementById('audioEl');
+let currentObjectUrl = null;
+let lastSavedSecond = -10;
+
+function playQueue(list, startIndex) { currentQueue = list.slice(); currentIndex = startIndex; loadCurrentTrack(true); }
+function loadCurrentTrack(autoplay) {
+  const t = currentQueue[currentIndex];
+  if (!t) return;
+  if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
+  currentObjectUrl = URL.createObjectURL(t.blob);
+  audioEl.src = currentObjectUrl;
+  document.getElementById('npTitle').textContent = t.title;
+  document.getElementById('npArtist').textContent = [t.artist, t.album].filter(v => v && v !== 'Unsorted').join(' · ') || '—';
+  document.getElementById('nowPlaying').classList.add('show');
+  if (autoplay) audioEl.play().catch(()=>{});
+  updatePlayIcon();
+  renderSound();
+  if (!restoringPlayback) savePlaybackState(0);
+}
+function togglePlay() { if (!audioEl.src) return; if (audioEl.paused) audioEl.play(); else audioEl.pause(); }
+audioEl.addEventListener('play', updatePlayIcon);
+audioEl.addEventListener('pause', () => { updatePlayIcon(); savePlaybackState(); });
+function updatePlayIcon() {
+  document.getElementById('npPlayIcon').innerHTML = audioEl.paused ? '<path d="M8 5v14l11-7z"/>' : '<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>';
+}
+function nextTrack() { if (currentIndex < currentQueue.length - 1) { currentIndex++; loadCurrentTrack(true); } }
+function prevTrack() { if (audioEl.currentTime > 3) { audioEl.currentTime = 0; return; } if (currentIndex > 0) { currentIndex--; loadCurrentTrack(true); } }
+audioEl.addEventListener('ended', () => { savePlaybackState(0); nextTrack(); });
+audioEl.addEventListener('timeupdate', () => {
+  if (!audioEl.duration) return;
+  document.getElementById('npSeek').value = (audioEl.currentTime / audioEl.duration) * 100;
+  document.getElementById('npCur').textContent = fmtTime(audioEl.currentTime);
+  document.getElementById('npDur').textContent = fmtTime(audioEl.duration);
+  if (!restoringPlayback && Math.abs(audioEl.currentTime - lastSavedSecond) >= 3) {
+    lastSavedSecond = audioEl.currentTime;
+    savePlaybackState();
+  }
+});
+document.getElementById('npSeek').addEventListener('input', (e) => { if (audioEl.duration) { audioEl.currentTime = (e.target.value / 100) * audioEl.duration; savePlaybackState(); } });
+document.getElementById('npVolume').addEventListener('input', (e) => {
+  audioEl.volume = Number(e.target.value);
+  setMeta('volume', audioEl.volume);
+});
+function savePlaybackState(overrideTime) {
+  if (!currentQueue.length) return;
+  setMeta('playbackState', {
+    queueIds: currentQueue.map(t => t.id),
+    index: currentIndex,
+    currentTime: overrideTime !== undefined ? overrideTime : audioEl.currentTime,
+    paused: audioEl.paused
+  });
+}
+window.addEventListener('beforeunload', () => savePlaybackState());
+function fmtTime(s) { s = Math.floor(s || 0); return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`; }
+
+/* ============================= Modals ============================= */
+function openPlaylistModal() {
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <h3>New playlist</h3>
+    <div class="field"><label>Name</label><input id="plNameInput" placeholder="Rainy day builds"></div>
+    <div class="modal-actions">
+      <button class="btn ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn teal" onclick="createPlaylist()">Create</button>
+    </div>
+  `;
+  document.getElementById('modalBackdrop').classList.add('active');
+  setTimeout(() => document.getElementById('plNameInput').focus(), 50);
+}
+async function createPlaylist() {
+  const name = document.getElementById('plNameInput').value.trim();
+  if (!name) return;
+  const pl = { id: uid(), name, trackIds: [] };
+  playlists.push(pl);
+  closeModal();
+  await dbPut('playlists', pl);
+  setSoundSeg('playlists');
+}
+function addToPlaylistPrompt(trackId) {
+  const body = document.getElementById('modalBody');
+  if (playlists.length === 0) {
+    body.innerHTML = `
+      <h3>No playlists yet</h3>
+      <p style="color:var(--text-dim); font-size:14px;">Create a playlist first, then add songs to it.</p>
+      <div class="modal-actions">
+        <button class="btn ghost" onclick="closeModal()">Close</button>
+        <button class="btn teal" onclick="closeModal(); openPlaylistModal();">New playlist</button>
+      </div>`;
+  } else {
+    body.innerHTML = `
+      <h3>Add to playlist</h3>
+      <div class="field"><select id="plSelect">${playlists.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('')}</select></div>
+      <div class="modal-actions">
+        <button class="btn ghost" onclick="closeModal()">Cancel</button>
+        <button class="btn teal" onclick="confirmAddToPlaylist('${trackId}')">Add</button>
+      </div>`;
+  }
+  document.getElementById('modalBackdrop').classList.add('active');
+}
+async function confirmAddToPlaylist(trackId) {
+  const plId = document.getElementById('plSelect').value;
+  const pl = playlists.find(p => p.id === plId);
+  if (pl && !pl.trackIds.includes(trackId)) { pl.trackIds.push(trackId); await dbPut('playlists', pl); }
+  closeModal();
+}
+function closeModal() { document.getElementById('modalBackdrop').classList.remove('active'); }
+document.getElementById('modalBackdrop').addEventListener('click', (e) => { if (e.target.id === 'modalBackdrop') closeModal(); });
+</script>
+</body>
+</html>
